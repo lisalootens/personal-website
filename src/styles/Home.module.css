@@ -119,17 +119,29 @@
   margin-left: 0.5rem;
 }
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
-}
-
-.background-video {
+.backgroundVideo {
   position: fixed;
   object-fit: cover;
   width: 100vw;
   height: 100vw;
   z-index: -1;
+
+}
+
+.socials {
+  width: 20px;
+  margin: 5px;
+  align-items: center;
+  display: inline-flex;
+  background: none;
+  color: black;
+  border: none;
+}
+
+.socialsDiv {
+  margin-left: 45%;
+}
+
+.socials:hover{
+  opacity: 0.7;
 }

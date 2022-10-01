@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
-
+import Socials from "../components/socials";
 
 const Home: NextPage = () => {
   return (
@@ -14,12 +14,12 @@ const Home: NextPage = () => {
       </Head>
       <main className={styles.main}>
         <div>
-          <video src="/videos/main_video.mp4" autoPlay loop muted />
+          <video src="/videos/main_video.mp4" autoPlay loop muted/>
           <div>
             <h1 className={styles.title}>Lisa Lootens</h1>
             <p className={styles.description}>Learning to be a developer!</p>
             <div>
-              
+              <Socials></Socials>
             </div>
           </div>
         </div>
