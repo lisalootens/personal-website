@@ -120,12 +120,7 @@
 }
 
 .backgroundVideo {
-  position: fixed;
-  object-fit: cover;
-  width: 100vw;
-  height: 100vw;
-  z-index: -1;
-
+  width: 100%;
 }
 
 .socials {

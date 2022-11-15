@@ -4,6 +4,8 @@ import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import Socials from "../components/socials";
 
+/* TODO - fix background video alignment and choose other video. */
+
 const Home: NextPage = () => {
   return (
     <div id="app">
@@ -14,10 +16,16 @@ const Home: NextPage = () => {
       </Head>
       <main className={styles.main}>
         <div>
-          <video src="/videos/main_video.mp4" autoPlay loop muted/>
+          <video
+            src="/videos/main_video.mp4"
+            autoPlay
+            loop
+            muted
+            className={styles.backgroundVideo}
+          />
           <div>
             <h1 className={styles.title}>Lisa Lootens</h1>
-            <p className={styles.description}>Learning to be a developer!</p>
+            <p className={styles.description}>Learning to become a developer!</p>
             <div>
               <Socials></Socials>
             </div>
@@ -29,7 +37,7 @@ const Home: NextPage = () => {
         </div>
 
         <div className={styles.grid}>
-          <Link href="/posts/about">
+          <Link href="/about">
             <a>
               <div className={styles.card}>
                 <h1 className="title">About</h1>
