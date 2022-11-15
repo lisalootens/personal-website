@@ -14,7 +14,6 @@
   display: flex;
   flex: 1;
   padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
   justify-content: center;
   align-items: center;
 }
@@ -52,6 +51,7 @@
 .title,
 .description {
   text-align: center;
+  font-family: sans-serif;
   transform: translate(-50%, -50%);
   position: absolute;
   top: 25%;
@@ -63,6 +63,10 @@
   margin: 4rem 0;
   line-height: 1.5;
   font-size: 1.5rem;
+}
+
+.span {
+  color: rgb(255, 145, 0);
 }
 
 .code {
@@ -114,27 +118,28 @@
   line-height: 1.5;
 }
 
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
-}
-
 .backgroundVideo {
-  width: 100%;
+  width: 100vw;
+  object-fit: cover;
+  position: fixed;
+  z-index: -1;
+  opacity: 95%;
 }
 
 .socials {
   width: 20px;
-  margin: 5px;
-  align-items: center;
-  display: inline-flex;
+  margin: 10px;
   background: none;
-  color: black;
+  color: white;
   border: none;
 }
 
 .socialsDiv {
-  margin-left: 45%;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
 }
 
 .socials:hover{
