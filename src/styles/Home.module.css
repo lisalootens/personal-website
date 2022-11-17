@@ -36,33 +36,21 @@
   text-decoration: underline;
 }
 
-/* resize for mobile */
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-  transform: translate(-50%, -50%);
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  color: white;
-}
-
 .title,
 .description {
   text-align: center;
   font-family: sans-serif;
   transform: translate(-50%, -50%);
   position: absolute;
-  top: 25%;
-  left: 50%;
+  top: 25vh;
+  left: 50vw;
   color: white;
+  font-size: 4vw;
 }
 
 .description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
+  position: relative;
+  font-size: 2vw;
 }
 
 .span {
@@ -119,7 +107,8 @@
 }
 
 .backgroundVideo {
-  width: 100vw;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   position: fixed;
   z-index: -1;
@@ -129,7 +118,7 @@
 }
 
 .socials {
-  width: 20px;
+  width: 2vw;
   margin: 10px;
   background: none;
   color: white;
