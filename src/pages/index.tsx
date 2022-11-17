@@ -1,10 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import Link from "next/link";
 import Socials from "../components/socials";
-
-/* TODO - fix video alignment. */
 
 const Home: NextPage = () => {
   return (
@@ -23,7 +20,9 @@ const Home: NextPage = () => {
             className={styles.backgroundVideo}
           />
           <div>
-            <h1 className={styles.title}>Hi, I am <span className={styles.span}>Lisa Lootens</span>.</h1>
+            <h1 className={styles.title}>
+              Hi, I am <span className={styles.span}>Lisa Lootens</span>.
+            </h1>
             <p className={styles.description}>
               Learning to become a developer!
             </p>

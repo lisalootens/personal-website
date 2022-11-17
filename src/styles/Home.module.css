@@ -124,6 +124,8 @@
   position: fixed;
   z-index: -1;
   opacity: 95%;
+  top: 0;
+  left: 0;
 }
 
 .socials {
