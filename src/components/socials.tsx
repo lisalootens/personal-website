@@ -8,10 +8,10 @@ import {
   faFacebook,
 } from "@fortawesome/free-brands-svg-icons";
 
-export default function Socials() {
+export default function Socials(): JSX.Element {
   return (
-    <div className={styles.socialsDiv}>
-      <a href="https://linkedin.com/in/lisa-lootens-94721b129/" target="_blank">
+    <div>
+      <a href="https://linkedin.com/in/lisalootens" target="_blank">
         <FontAwesomeIcon icon={faLinkedin} className={styles.socials} />
       </a>
       <a href="https://github.com/lisalootens" target="_blank">
