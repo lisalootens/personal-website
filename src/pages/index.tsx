@@ -22,7 +22,10 @@ const Home: NextPage = () => {
         <h1 className={styles.title}>
           Hi, I am <span className={styles.span}>Lisa Lootens</span>.
         </h1>
-        <p className={styles.description}>Learning to become a developer!</p>
+        <p className={styles.description}>
+          Learning to become a developer! I am currently focussing on Java and
+          React. Soon starting as a fullstack developer at Ordina.
+        </p>
         <Socials />
       </main>
     </>
