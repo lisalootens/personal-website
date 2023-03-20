@@ -23,8 +23,8 @@ const Home: NextPage = () => {
           Hi, I am <span className={styles.span}>Lisa Lootens</span>.
         </h1>
         <p className={styles.description}>
-          Learning to become a developer! I am currently focussing on Java and
-          React. Recently started as a Software Engineer at Ordina.
+          Learning to become a developer! I am currently focussing on Java.
+          Recently started as a Software Engineer at Ordina.
         </p>
         <Socials />
       </main>
