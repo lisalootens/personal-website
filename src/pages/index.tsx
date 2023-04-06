@@ -1,7 +1,6 @@
-import type { NextPage } from "next";
+import type {NextPage} from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-
 import Socials from "../components/socials";
 
 const Home: NextPage = () => {
@@ -9,7 +8,6 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>Lisa Lootens</title>
-        <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="/globals.css" />
       </Head>
       <main className={styles.main}>
