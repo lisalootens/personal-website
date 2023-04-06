@@ -10,7 +10,7 @@ import {
 
 export default function Socials(): JSX.Element {
   return (
-    <div>
+    <div className={styles.socialsContainer}>
       <a href="https://linkedin.com/in/lisalootens" target="_blank">
         <FontAwesomeIcon icon={faLinkedin} className={styles.socials} />
       </a>
