@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+/* TODO - create seperate css files */
 
 .main {
   text-align: center;
@@ -26,6 +26,7 @@
   color: rgb(255, 145, 0);
 }
 
+/* SOCIAL MEDIA ICONS */
 .socialsContainer {
   display: flex;
   align-items: center;
@@ -33,24 +34,27 @@
 
 .socials {
   display: flex;
-  width: 2vw;
-  margin: 1vw;
-  color: white;
-  border: none;
+    width: 2vw;
+    margin: 1vw;
+    color: white;
+    border: none;
 }
 
 .socials:hover {
-  opacity: 0.7;
+    opacity: 0.7;
 }
 
+/* BACKGROUND ANIMATION */
+@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+
 .body {
-  font-family: 'Exo', sans-serif;
+    font-family: 'Exo', sans-serif;
 }
 
 .context {
-  width: 100%;
-  position: absolute;
-  top:50vh;
+    width: 100%;
+    position: absolute;
+    top: 50vh;
 }
 
 .context h1{
@@ -174,6 +178,5 @@
     opacity: 0;
     border-radius: 50%;
   }
-
 }
 
