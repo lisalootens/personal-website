@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/Home.module.css";
+import styles from "../components/background.module.css";
 
 export default function Socials(): JSX.Element {
     return (
