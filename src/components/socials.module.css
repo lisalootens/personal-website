@@ -4,9 +4,8 @@
 }
 
 .socials {
-    display: flex;
-    width: 2vw;
-    margin: 1vw;
+    width: 1.8rem;
+    margin: 3vw;
     color: white;
     border: none;
 }
