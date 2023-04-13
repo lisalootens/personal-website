@@ -10,6 +10,7 @@
 .title {
   color: white;
   font-size: 3rem;
+  font-weight: bold;
 }
 
 .description {
@@ -21,6 +22,7 @@
 
 .span {
   color: rgb(255, 145, 0);
+  font-weight: bold;
 }
 
 @media (min-width: 960px) {
@@ -28,7 +30,6 @@
     font-size: 5rem;
     margin: 1.5vh 5vw;
   }
-
   .description {
     font-size: 1.5rem;
     margin: 0.5vh 5vw 5vh;
