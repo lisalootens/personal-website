@@ -1,14 +1,14 @@
 import React from "react";
-import styles from "../styles/Home.module.css";
+import styles from "../components/socials.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faLinkedin,
+  faFacebook,
   faGithub,
   faInstagram,
-  faFacebook,
+  faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 
-export default function Socials(): JSX.Element {
+export function Socials(): JSX.Element {
   return (
     <div className={styles.socialsContainer}>
       <a href="https://linkedin.com/in/lisalootens" target="_blank">
