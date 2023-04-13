@@ -1,21 +1,12 @@
 import React from "react";
 import styles from "../components/background.module.css";
 
-export default function Socials(): JSX.Element {
+export function Background(): JSX.Element {
     return (
-        <section className={styles.circles}>
+        <div className={styles.circles}>
             <ul className={styles.circles}>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                {Array.from({length: 10}).map((_, index) => <li key={`backgroundCircle-${index}`}></li>)}
             </ul>
-        </section>
+        </div>
     );
 }
