@@ -1,4 +1,4 @@
-import { PhotoGallery } from "../../components/photoGallery";
+import { PhotoGallery } from "../../components/PhotoGallery";
 
 export default function AfricaBlog() {
   const photos = [
