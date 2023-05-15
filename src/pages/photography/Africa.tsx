@@ -1,6 +1,6 @@
 import { PhotoGallery } from "../../components/PhotoGallery";
 
-export default function AfricaBlog() {
+export default function AfricaPhotoGallery() {
   const photos = [
     { src: "/images/dune.jpg", alt: "Photo dune" },
     { src: "/images/oryx.jpg", alt: "Photo oryx" },
