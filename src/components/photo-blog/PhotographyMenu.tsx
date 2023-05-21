@@ -1,7 +1,7 @@
-import { CarouselSlider } from "./CarouselSlider";
+import { CarouselSlider } from "../CarouselSlider";
 
 export default function PhotographyMenu() {
-  const menuPhotos = [
+  const menuPhotos: { name: string; src: string }[] = [
     {
       name: "dune",
       src: "images/dune.jpg",
