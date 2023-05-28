@@ -2,9 +2,9 @@ import { PhotoGallery } from "../../components/PhotoGallery";
 
 export default function AfricaPhotoGallery() {
   const photos = [
-    { src: "/images/dune.jpg", alt: "Photo dune" },
-    { src: "/images/oryx.jpg", alt: "Photo oryx" },
-    { src: "/images/zebra.jpg", alt: "Photo zebra" },
+    { name: "Photo dune", src: "/images/dune.jpg" },
+    { name: "Photo oryx", src: "/images/oryx.jpg" },
+    { name: "Photo zebra", src: "/images/zebra.jpg" },
   ];
 
   return <PhotoGallery photos={photos} />;
