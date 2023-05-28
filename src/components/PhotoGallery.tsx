@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 interface Photo {
+  name: string;
   src: string;
-  alt: string;
 }
 
 interface PhotoGalleryProps {
@@ -42,7 +42,7 @@ export const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos }) => {
     <GalleryContainer>
       {photos.map((photo) => (
         <PhotoContainer key={photo.src}>
-          <img className={PhotoContainer} src={photo.src} alt={photo.alt} />
+          <img className={PhotoContainer} src={photo.src} alt={photo.name} />
         </PhotoContainer>
       ))}
     </GalleryContainer>
