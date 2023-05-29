@@ -10,6 +10,10 @@ const Home: NextPage = () => {
       <Head>
         <title>Lisa Lootens</title>
         <link rel="stylesheet" href="/globals.css" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+          rel="stylesheet"
+        ></link>
       </Head>
       <Background />
       <main>
