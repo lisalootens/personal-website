@@ -43,13 +43,13 @@ const CarouselStyle = createGlobalStyle`
 `;
 
 export const CarouselSlider: React.FC<CarouselSliderProps> = ({ photos }) => {
+  const slideDuration: number = 5000;
   const [sliderRef] = useKeenSlider(
     {
       loop: true,
     },
     [
       (slider) => {
-        const duration: number = 5000;
         let timeout: any;
 
         function clearNextTimeout() {
@@ -60,7 +60,7 @@ export const CarouselSlider: React.FC<CarouselSliderProps> = ({ photos }) => {
           clearTimeout(timeout);
           timeout = setTimeout(() => {
             slider.next();
-          }, duration);
+          }, slideDuration);
         }
 
         slider.on("created", () => {
