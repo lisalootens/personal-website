@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 
-export function ProgressBar(): JSX.Element {
+// TODO - fix duration issue (DO NOT USE YET)
+
+export default function ProgressBar(duration: number): JSX.Element {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const interval: number = 10;
-    const duration: number = 5000;
     let updatedProgress: number = 0;
 
     const timer: NodeJS.Timer = setInterval(() => {
@@ -29,9 +30,9 @@ export function ProgressBar(): JSX.Element {
     height: 0.5vw;
     width: 100%;
     background-color: #dadada;
-    animation: progressAnimationStrike 4.5s;
+    animation: progressAnimation 5s;
 
-    @keyframes progressAnimationStrike {
+    @keyframes progressAnimation {
       from {
         width: 0;
       }
