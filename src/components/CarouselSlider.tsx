@@ -15,14 +15,9 @@ interface CarouselSliderProps {
 const CarouselStyle = createGlobalStyle`
   .keen-slider__slide {
     min-width: 100%;
-    height: 80vh;
+    height: 100vh;
     position: relative;
     overflow: hidden;
-
-    @media (max-width: 418px) {
-      height: 100vh;
-    }
-
   }
 
   .title {
@@ -54,6 +49,7 @@ export const CarouselSlider: React.FC<CarouselSliderProps> = ({ photos }) => {
     },
     [
       (slider) => {
+        const duration: number = 5000;
         let timeout: any;
 
         function clearNextTimeout() {
@@ -64,7 +60,7 @@ export const CarouselSlider: React.FC<CarouselSliderProps> = ({ photos }) => {
           clearTimeout(timeout);
           timeout = setTimeout(() => {
             slider.next();
-          }, 5000);
+          }, duration);
         }
 
         slider.on("created", () => {
