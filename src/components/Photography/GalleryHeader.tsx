@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function PhotoGalleryHeader(title: string) {
+export function PhotoGalleryHeader(title: string) {
   const Title = styled.h1`
     background-color: white;
     color: #3d3d3d;

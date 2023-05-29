@@ -37,7 +37,9 @@ const PhotoContainer = styled.div`
   }
 `;
 
-export const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos }) => {
+export const PhotoGalleryContent: React.FC<PhotoGalleryProps> = ({
+  photos,
+}) => {
   return (
     <GalleryContainer>
       {photos.map((photo) => (

@@ -1,6 +1,6 @@
 import { CarouselSlider } from "../CarouselSlider";
 
-export default function PhotographyMenu() {
+export default function PhotographyMenu(): JSX.Element {
   const menuPhotos: { name: string; src: string; title?: string }[] = [
     {
       name: "dune",
