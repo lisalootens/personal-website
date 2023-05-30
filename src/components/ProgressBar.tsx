@@ -7,11 +7,11 @@ export default function ProgressBar(duration: number): JSX.Element {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const interval: number = 10;
-    let updatedProgress: number = 0;
+    const interval = 10;
+    let updatedProgress = 0;
 
     const timer: NodeJS.Timer = setInterval(() => {
-      setProgress((previousProgress: number) => {
+      setProgress((previousProgress) => {
         updatedProgress = previousProgress + interval;
         if (updatedProgress == 100) {
           clearInterval(timer);
