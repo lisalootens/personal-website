@@ -50,7 +50,7 @@ export const CarouselSlider: React.FC<CarouselSliderProps> = ({ photos }) => {
     },
     [
       (slider) => {
-        let timeout: any;
+        let timeout: NodeJS.Timeout;
 
         function clearNextTimeout() {
           clearTimeout(timeout);
