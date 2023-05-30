@@ -1,4 +1,3 @@
-import { NextPage } from "next";
 import { createGlobalStyle } from "styled-components";
 import PhotographyMenu from "../components/Photography/PhotographyMenu";
 
@@ -8,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Photography: NextPage = () => {
+const Photography = () => {
   return (
     <>
       <GlobalStyle />
