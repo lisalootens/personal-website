@@ -1,6 +1,6 @@
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
-import { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
 interface Photo {
   name: string;
@@ -12,13 +12,11 @@ interface CarouselSliderProps {
   photos: Photo[];
 }
 
-const CarouselStyle = createGlobalStyle`
-  .keen-slider__slide {
-    min-width: 100%;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-  }
+const Slide = styled.div.attrs({ className: "keen-slider__slide" })`
+  min-width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
 
   .title {
     position: absolute;
@@ -74,16 +72,13 @@ export const CarouselSlider: React.FC<CarouselSliderProps> = ({ photos }) => {
   );
 
   return (
-    <>
-      <CarouselStyle />
-      <div ref={sliderRef} className="keen-slider">
-        {photos.map((photo) => (
-          <div key={photo.name} className="keen-slider__slide">
-            <img key={photo.name} src={photo.src} alt={photo.name} />
-            <div className="title">{photo.title}</div>
-          </div>
-        ))}
-      </div>
-    </>
+    <div ref={sliderRef} className="keen-slider">
+      {photos.map((photo) => (
+        <Slide key={photo.name} className="keen-slider__slide">
+          <img key={photo.name} src={photo.src} alt={photo.name} />
+          <div className="title">{photo.title}</div>
+        </Slide>
+      ))}
+    </div>
   );
 };
