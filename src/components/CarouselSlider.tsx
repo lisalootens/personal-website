@@ -28,6 +28,7 @@ const Slide = styled.div.attrs({ className: "keen-slider__slide" })`
     color: white;
     font-size: 8vw;
     font-weight: bold;
+    cursor: pointer;
 
     @media (max-width: 960px) {
       font-size: 15vw;
@@ -39,7 +40,6 @@ const Slide = styled.div.attrs({ className: "keen-slider__slide" })`
     object-position: center;
     width: 100%;
     height: 100%;
-    cursor: pointer;
   }
 `;
 
@@ -83,12 +83,12 @@ export const CarouselSlider: React.FC<CarouselSliderProps> = ({ photos }) => {
   return (
     <div ref={sliderRef} className="keen-slider">
       {photos.map((photo) => (
-        <Slide key={photo.name} className="keen-slider__slide">
-          <img
-            src={photo.src}
-            alt={photo.name}
-            onClick={() => handleOnClick(`/photography/${photo.title}`)}
-          />
+        <Slide
+          key={photo.name}
+          className="keen-slider__slide"
+          onClick={() => handleOnClick(`/photography/${photo.title}`)}
+        >
+          <img src={photo.src} alt={photo.name} />
           <div className="title">{photo.title}</div>
         </Slide>
       ))}
