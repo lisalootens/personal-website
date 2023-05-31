@@ -1,7 +1,25 @@
 import { createGlobalStyle } from "styled-components";
-import PhotographyMenu from "../components/Photography/PhotographyMenu";
+import { CarouselSlider } from "../components/CarouselSlider";
 
-const GlobalStyle = createGlobalStyle`
+const menuPhotos = [
+  {
+    name: "dune",
+    src: "images/dune.jpg",
+    title: "africa",
+  },
+  {
+    name: "oryx",
+    src: "images/oryx.jpg",
+    title: "asia",
+  },
+  {
+    name: "zebra",
+    src: "images/zebra.jpg",
+    title: "europe",
+  },
+];
+
+const PageStyle = createGlobalStyle`
   body {
     margin: 0;
   }
@@ -10,8 +28,8 @@ const GlobalStyle = createGlobalStyle`
 const Photography = () => {
   return (
     <>
-      <GlobalStyle />
-      <PhotographyMenu />
+      <PageStyle />
+      <CarouselSlider photos={menuPhotos} />
     </>
   );
 };
