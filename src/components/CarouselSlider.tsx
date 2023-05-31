@@ -1,6 +1,7 @@
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 interface Photo {
   name: string;
@@ -23,9 +24,11 @@ const Slide = styled.div.attrs({ className: "keen-slider__slide" })`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-transform: capitalize;
     color: white;
     font-size: 8vw;
     font-weight: bold;
+    cursor: pointer;
 
     @media (max-width: 960px) {
       font-size: 15vw;
@@ -41,7 +44,13 @@ const Slide = styled.div.attrs({ className: "keen-slider__slide" })`
 `;
 
 export const CarouselSlider: React.FC<CarouselSliderProps> = ({ photos }) => {
+  const router = useRouter();
   const slideDuration: number = 5000;
+
+  function handleOnClick(path: string) {
+    return router.push(path);
+  }
+
   const [sliderRef] = useKeenSlider(
     {
       loop: true,
@@ -74,8 +83,12 @@ export const CarouselSlider: React.FC<CarouselSliderProps> = ({ photos }) => {
   return (
     <div ref={sliderRef} className="keen-slider">
       {photos.map((photo) => (
-        <Slide key={photo.name} className="keen-slider__slide">
-          <img key={photo.name} src={photo.src} alt={photo.name} />
+        <Slide
+          key={photo.name}
+          className="keen-slider__slide"
+          onClick={() => handleOnClick(`/photography/${photo.title}`)}
+        >
+          <img src={photo.src} alt={photo.name} />
           <div className="title">{photo.title}</div>
         </Slide>
       ))}
