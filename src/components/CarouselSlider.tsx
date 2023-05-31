@@ -1,6 +1,7 @@
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import styled from "styled-components";
+import { useProgressBar } from "./ProgressBar";
 
 interface Photo {
   name: string;
@@ -10,6 +11,7 @@ interface Photo {
 
 interface CarouselSliderProps {
   photos: Photo[];
+  showProgressBar: boolean;
 }
 
 const Slide = styled.div.attrs({ className: "keen-slider__slide" })`
@@ -40,8 +42,19 @@ const Slide = styled.div.attrs({ className: "keen-slider__slide" })`
   }
 `;
 
-export const CarouselSlider: React.FC<CarouselSliderProps> = ({ photos }) => {
-  const slideDuration: number = 5000;
+export const CarouselSlider = ({ photos, showProgressBar }: CarouselSliderProps) => {
+  const SLIDE_DURATION = 5 * 1000;
+  const { ProgressBar, startProgress, stopProgress } =
+    useProgressBar(SLIDE_DURATION);
+
+  function ShowProgressBar() {
+    if (!showProgressBar) {
+      return <div></div>;
+    } else {
+      <ProgressBar />;
+    }
+  }
+
   const [sliderRef] = useKeenSlider(
     {
       loop: true,
@@ -51,14 +64,17 @@ export const CarouselSlider: React.FC<CarouselSliderProps> = ({ photos }) => {
         let timeout: NodeJS.Timeout;
 
         function clearNextTimeout() {
+          stopProgress();
           clearTimeout(timeout);
         }
 
         function nextTimeout() {
+          stopProgress();
           clearTimeout(timeout);
           timeout = setTimeout(() => {
             slider.next();
-          }, slideDuration);
+          }, SLIDE_DURATION);
+          startProgress();
         }
 
         slider.on("created", () => {
@@ -72,13 +88,16 @@ export const CarouselSlider: React.FC<CarouselSliderProps> = ({ photos }) => {
   );
 
   return (
-    <div ref={sliderRef} className="keen-slider">
-      {photos.map((photo) => (
-        <Slide key={photo.name} className="keen-slider__slide">
-          <img key={photo.name} src={photo.src} alt={photo.name} />
-          <div className="title">{photo.title}</div>
-        </Slide>
-      ))}
-    </div>
+    <>
+      <div ref={sliderRef} className="keen-slider">
+        {photos.map((photo) => (
+          <Slide key={photo.name} className="keen-slider__slide">
+            <img key={photo.name} src={photo.src} alt={photo.name} />
+            <div className="title">{photo.title}</div>
+          </Slide>
+        ))}
+      </div>
+      {ShowProgressBar};
+    </>
   );
 };

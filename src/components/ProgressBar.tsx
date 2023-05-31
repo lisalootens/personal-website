@@ -1,50 +1,47 @@
-import React, {useEffect, useState} from "react";
 import styled from "styled-components";
+import { useState } from "react";
 
-// TODO - fix duration issue (DO NOT USE YET)
+type ProgressBarProps = {
+  transitionTime: number;
+  isRunning: boolean;
+};
 
-export default function ProgressBar(duration: number): JSX.Element {
-  const [progress, setProgress] = useState(0);
+const Background = styled.div`
+  width: 100%;
+  height: 0.5rem;
+  background-color: grey;
+`;
 
-  useEffect(() => {
-    const interval = 10;
-    let updatedProgress = 0;
+const Bar = styled.div<{ progress: string; transitionTime: number }>`
+  width: ${(props) => props.progress};
+  height: 0.5rem;
+  background-color: red;
+  transition: width ${(props) => props.transitionTime}ms ease;
+`;
 
-    const timer: NodeJS.Timer = setInterval(() => {
-      setProgress((previousProgress) => {
-        updatedProgress = previousProgress + interval;
-        if (updatedProgress == 100) {
-          clearInterval(timer);
-        }
-        return updatedProgress;
-      });
-    }, duration);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  const ProgressBar = styled.div`
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 0.5vw;
-    width: 100%;
-    background-color: #dadada;
-    animation: progressAnimation 5s;
-
-    @keyframes progressAnimation {
-      from {
-        width: 0;
-      }
-      to {
-        width: 100%;
-      }
-    }
-  `;
-
+function ProgressBar({ isRunning, transitionTime }: ProgressBarProps) {
   return (
-    <>
-      <ProgressBar />
-    </>
+    <Background>
+      <Bar
+        progress={isRunning ? "100%" : "0%"}
+        transitionTime={transitionTime}
+      />
+    </Background>
   );
+}
+
+export function useProgressBar(transitionTime: number) {
+  const [isRunning, setIsRunning] = useState(false);
+
+  return {
+    ProgressBar: () => (
+      <ProgressBar isRunning={isRunning} transitionTime={transitionTime} />
+    ),
+    startProgress: () => {
+      setIsRunning(true);
+    },
+    stopProgress: () => {
+      setIsRunning(false);
+    },
+  };
 }
