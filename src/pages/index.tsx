@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "./index.module.css";
 import { Background } from "../components/background";
-import { Socials } from "../components/socials";
+import { SocialIcons } from "../components/SocialIcons";
 
 const Home: NextPage = () => {
   return (
@@ -25,7 +25,7 @@ const Home: NextPage = () => {
             Learning to become a developer! I am currently focussing on Java.
             Recently started as a Software Engineer at Ordina.
           </p>
-          <Socials />
+          <SocialIcons />
         </section>
       </main>
     </>
