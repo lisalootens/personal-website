@@ -33,6 +33,10 @@ const Slide = styled.div.attrs({ className: "keen-slider__slide" })`
     @media (max-width: 960px) {
       font-size: 15vw;
     }
+
+    :hover {
+      opacity: 0.9;
+    }
   }
 
   img {
