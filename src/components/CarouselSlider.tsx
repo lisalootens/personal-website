@@ -1,8 +1,9 @@
 import "keen-slider/keen-slider.min.css";
-import { useKeenSlider } from "keen-slider/react";
+import {useKeenSlider} from "keen-slider/react";
 import styled from "styled-components";
-import { useProgressBar } from "./ProgressBar";
+import {useProgressBar} from "./ProgressBar";
 
+// TODO - fix progressbar rendering issue
 interface Photo {
   name: string;
   src: string;
@@ -47,14 +48,6 @@ export const CarouselSlider = ({ photos, showProgressBar }: CarouselSliderProps)
   const { ProgressBar, startProgress, stopProgress } =
     useProgressBar(SLIDE_DURATION);
 
-  function ShowProgressBar() {
-    if (!showProgressBar) {
-      return <div></div>;
-    } else {
-      <ProgressBar />;
-    }
-  }
-
   const [sliderRef] = useKeenSlider(
     {
       loop: true,
@@ -63,26 +56,27 @@ export const CarouselSlider = ({ photos, showProgressBar }: CarouselSliderProps)
       (slider) => {
         let timeout: NodeJS.Timeout;
 
-        function clearNextTimeout() {
-          stopProgress();
-          clearTimeout(timeout);
-        }
-
-        function nextTimeout() {
-          stopProgress();
-          clearTimeout(timeout);
-          timeout = setTimeout(() => {
-            slider.next();
-          }, SLIDE_DURATION);
+        function startTimeout() {
+          nextTimeout();
           startProgress();
         }
 
-        slider.on("created", () => {
-          nextTimeout();
+        function nextTimeout() {
+          clearTimeout(timeout);
+          timeout = setTimeout(() => {
+            stopProgress();
+            slider.next();
+            startProgress();
+          }, SLIDE_DURATION);
+        }
+
+        slider.on("created", startTimeout);
+        slider.on("dragStarted", () => {
+          stopProgress();
+          clearTimeout(timeout);
         });
-        slider.on("dragStarted", clearNextTimeout);
-        slider.on("animationEnded", nextTimeout);
-        slider.on("updated", nextTimeout);
+        slider.on("animationEnded", startTimeout);
+        slider.on("updated", startTimeout);
       },
     ]
   );
@@ -97,7 +91,7 @@ export const CarouselSlider = ({ photos, showProgressBar }: CarouselSliderProps)
           </Slide>
         ))}
       </div>
-      {ShowProgressBar};
+      {showProgressBar === true && <ProgressBar />}
     </>
   );
 };

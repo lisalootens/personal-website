@@ -18,5 +18,5 @@ export default function PhotographyMenu(): JSX.Element {
       title: "Europe",
     },
   ];
-  return <CarouselSlider photos={menuPhotos} />;
+  return <CarouselSlider photos={menuPhotos} showProgressBar={true} />;
 }

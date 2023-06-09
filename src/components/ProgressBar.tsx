@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useReducer, useState } from "react";
 
 type ProgressBarProps = {
   transitionTime: number;
@@ -12,26 +12,41 @@ const Background = styled.div`
   background-color: grey;
 `;
 
-const Bar = styled.div<{ progress: string; transitionTime: number }>`
-  width: ${(props) => props.progress};
+const Bar = styled.div<{ transitionTime: number }>`
+  width: 100%;
   height: 0.5rem;
+  background-color: transparent;
+`;
+
+const RunningBar = styled(Bar)`
   background-color: red;
-  transition: width ${(props) => props.transitionTime}ms ease;
+  animation: progressAnimation ${(props) => props.transitionTime}ms;
+
+  @keyframes progressAnimation {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
 `;
 
 function ProgressBar({ isRunning, transitionTime }: ProgressBarProps) {
   return (
     <Background>
-      <Bar
-        progress={isRunning ? "100%" : "0%"}
-        transitionTime={transitionTime}
-      />
+      {isRunning ? (
+        <RunningBar transitionTime={transitionTime} />
+      ) : (
+        <Bar transitionTime={transitionTime} />
+      )}
     </Background>
   );
 }
 
 export function useProgressBar(transitionTime: number) {
   const [isRunning, setIsRunning] = useState(false);
+  const [_, forceUpdate] = useReducer((x) => x + 1, 0);
 
   return {
     ProgressBar: () => (
@@ -39,6 +54,7 @@ export function useProgressBar(transitionTime: number) {
     ),
     startProgress: () => {
       setIsRunning(true);
+      forceUpdate();
     },
     stopProgress: () => {
       setIsRunning(false);
