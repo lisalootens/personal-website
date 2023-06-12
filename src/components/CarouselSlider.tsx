@@ -1,9 +1,8 @@
 import "keen-slider/keen-slider.min.css";
-import {useKeenSlider} from "keen-slider/react";
+import { useKeenSlider } from "keen-slider/react";
 import styled from "styled-components";
-import {useProgressBar} from "./ProgressBar";
+import { useProgressBar } from "./ProgressBar";
 
-// TODO - fix progressbar rendering issue
 interface Photo {
   name: string;
   src: string;
@@ -75,7 +74,10 @@ export const CarouselSlider = ({ photos, showProgressBar }: CarouselSliderProps)
           stopProgress();
           clearTimeout(timeout);
         });
-        slider.on("animationEnded", startTimeout);
+        slider.on("dragEnded", () => {
+          startTimeout();
+        });
+        slider.on("animationEnded", nextTimeout);
         slider.on("updated", startTimeout);
       },
     ]
@@ -84,6 +86,7 @@ export const CarouselSlider = ({ photos, showProgressBar }: CarouselSliderProps)
   return (
     <>
       <div ref={sliderRef} className="keen-slider">
+        {showProgressBar === true && <ProgressBar />}
         {photos.map((photo) => (
           <Slide key={photo.name} className="keen-slider__slide">
             <img key={photo.name} src={photo.src} alt={photo.name} />
@@ -91,7 +94,6 @@ export const CarouselSlider = ({ photos, showProgressBar }: CarouselSliderProps)
           </Slide>
         ))}
       </div>
-      {showProgressBar === true && <ProgressBar />}
     </>
   );
 };

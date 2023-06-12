@@ -6,6 +6,15 @@ type ProgressBarProps = {
   isRunning: boolean;
 };
 
+const ProgressBarContainer = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.5rem;
+  z-index: 2;
+`;
+
 const Background = styled.div`
   width: 100%;
   height: 0.5rem;
@@ -19,7 +28,7 @@ const Bar = styled.div<{ transitionTime: number }>`
 `;
 
 const RunningBar = styled(Bar)`
-  background-color: red;
+  background-color: darkgrey;
   animation: progressAnimation ${(props) => props.transitionTime}ms;
 
   @keyframes progressAnimation {
@@ -34,13 +43,15 @@ const RunningBar = styled(Bar)`
 
 function ProgressBar({ isRunning, transitionTime }: ProgressBarProps) {
   return (
-    <Background>
-      {isRunning ? (
-        <RunningBar transitionTime={transitionTime} />
-      ) : (
-        <Bar transitionTime={transitionTime} />
-      )}
-    </Background>
+    <ProgressBarContainer>
+      <Background>
+        {isRunning ? (
+          <RunningBar transitionTime={transitionTime} />
+        ) : (
+          <Bar transitionTime={transitionTime} />
+        )}
+      </Background>
+    </ProgressBarContainer>
   );
 }
 
@@ -53,8 +64,8 @@ export function useProgressBar(transitionTime: number) {
       <ProgressBar isRunning={isRunning} transitionTime={transitionTime} />
     ),
     startProgress: () => {
-      setIsRunning(true);
       forceUpdate();
+      setIsRunning(true);
     },
     stopProgress: () => {
       setIsRunning(false);
