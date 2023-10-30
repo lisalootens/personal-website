@@ -9,7 +9,6 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>Lisa Lootens</title>
-        <link rel="stylesheet" href="/globals.css" />
       </Head>
       <Background />
       <main>
