@@ -37,7 +37,11 @@ const Photography = () => {
       <Head>
         <title>Photography</title>
       </Head>
-      <CarouselSlider photos={menuPhotos} clickable={true} />
+      <CarouselSlider
+        photos={menuPhotos}
+        clickable={true}
+        showDurationBar={true}
+      />
     </>
   );
 };
