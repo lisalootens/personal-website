@@ -1,5 +1,6 @@
 import React from "react";
 import { useKeenSlider } from "keen-slider/react";
+import { useDurationBar } from "./DurationBar";
 import styled from "styled-components";
 
 interface Photo {
@@ -12,10 +13,17 @@ interface Photo {
 interface CarouselSliderProps {
   photos: Photo[];
   clickable: boolean;
+  showDurationBar: boolean;
 }
 
-export const CarouselSlider = ({ photos, clickable }: CarouselSliderProps) => {
+export const CarouselSlider = ({
+  photos,
+  clickable,
+  showDurationBar,
+}: CarouselSliderProps) => {
   const SLIDE_DURATION = 5 * 1000;
+  const { DurationBar, startDurationBar, stopDurationBar } =
+    useDurationBar(SLIDE_DURATION);
 
   function handleOnClick(): void {
     alert("clicked!");
@@ -31,17 +39,21 @@ export const CarouselSlider = ({ photos, clickable }: CarouselSliderProps) => {
 
         function startTimeout() {
           nextTimeout();
+          startDurationBar();
         }
 
         function nextTimeout() {
           clearTimeout(timeout);
           timeout = setTimeout(() => {
+            stopDurationBar();
             slider.next();
+            startDurationBar();
           }, SLIDE_DURATION);
         }
 
         slider.on("created", startTimeout);
         slider.on("dragStarted", () => {
+          stopDurationBar();
           clearTimeout(timeout);
         });
         slider.on("dragEnded", startTimeout);
@@ -63,6 +75,7 @@ export const CarouselSlider = ({ photos, clickable }: CarouselSliderProps) => {
             <div className="title">{photo.title}</div>
           </Slide>
         ))}
+        {showDurationBar && <DurationBar />}
       </Wrapper>
     </>
   );
@@ -73,7 +86,7 @@ const Wrapper = styled.section`
 `;
 
 const Slide = styled.div.attrs({ className: "keen-slider__slide" })`
-  width: 100vw;
+  min-width: 100%;
   height: 100vh;
   position: relative;
   overflow: hidden;
