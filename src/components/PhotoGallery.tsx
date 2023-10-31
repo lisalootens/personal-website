@@ -16,7 +16,7 @@ export const PhotoGallery: React.FC<PhotoGalleryProps> = ({
   return (
     <>
       <GalleryContainer>
-        {title && description && (
+        {title && (
           <GalleryTitleBlock>
             <h1>{title}</h1>
             <p>{description}</p>
