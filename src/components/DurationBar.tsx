@@ -2,31 +2,31 @@ import { useReducer, useState } from "react";
 import styled from "styled-components";
 
 type DurationBarProps = {
-  transitionTime: number;
+  duration: number;
   isRunning: boolean;
 };
 
-function DurationBar({ isRunning, transitionTime }: DurationBarProps) {
+function DurationBar({ isRunning, duration }: DurationBarProps) {
   return (
     <Container>
       <Background>
         {isRunning ? (
-          <RunningBar transitionTime={transitionTime} />
+          <RunningBar duration={duration} />
         ) : (
-          <Bar transitionTime={transitionTime} />
+          <Bar duration={duration} />
         )}
       </Background>
     </Container>
   );
 }
 
-export function useDurationBar(transitionTime: number) {
+export function useDurationBar(duration: number) {
   const [isRunning, setIsRunning] = useState(false);
   const [_, forceUpdate] = useReducer((x) => x + 1, 0);
 
   return {
     DurationBar: () => (
-      <DurationBar isRunning={isRunning} transitionTime={transitionTime} />
+      <DurationBar isRunning={isRunning} duration={duration} />
     ),
     startDurationBar: () => {
       forceUpdate();
@@ -53,7 +53,7 @@ const Background = styled.div`
   background-color: grey;
 `;
 
-const Bar = styled.div<{ transitionTime: number }>`
+const Bar = styled.div<{ duration: number }>`
   width: 100%;
   height: 0.5rem;
   background-color: transparent;
@@ -61,7 +61,7 @@ const Bar = styled.div<{ transitionTime: number }>`
 
 const RunningBar = styled(Bar)`
   background-color: darkgrey;
-  animation: progressAnimation ${(props) => props.transitionTime}ms;
+  animation: progressAnimation ${(props) => props.duration}ms;
 
   @keyframes progressAnimation {
     from {
