@@ -1,17 +1,11 @@
 import React from "react";
 import { useKeenSlider } from "keen-slider/react";
 import { useDurationBar } from "./DurationBar";
+import { PhotoInterface } from "../interfaces/PhotoInterface";
 import styled from "styled-components";
 
-interface Photo {
-  name: string;
-  src: string;
-  alt: string;
-  title?: string;
-}
-
 interface CarouselSliderProps {
-  photos: Photo[];
+  photos: PhotoInterface[];
   clickable: boolean;
   handleOnClick?: () => any;
   showDurationBar: boolean;
