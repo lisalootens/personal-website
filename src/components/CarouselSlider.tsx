@@ -13,21 +13,19 @@ interface Photo {
 interface CarouselSliderProps {
   photos: Photo[];
   clickable: boolean;
+  handleOnClick?: () => any;
   showDurationBar: boolean;
 }
 
 export const CarouselSlider = ({
   photos,
   clickable,
+  handleOnClick,
   showDurationBar,
 }: CarouselSliderProps) => {
   const SLIDE_DURATION = 5 * 1000;
   const { DurationBar, startDurationBar, stopDurationBar } =
     useDurationBar(SLIDE_DURATION);
-
-  function handleOnClick(): void {
-    alert("clicked!");
-  }
 
   const [sliderRef] = useKeenSlider(
     {
