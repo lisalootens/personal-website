@@ -32,6 +32,12 @@ export const PhotoGallery: React.FC<PhotoGalleryProps> = ({
   );
 };
 
+const GalleryContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+  gap: 0.5rem;
+`;
+
 const GalleryTitleBlock = styled.section`
   grid-column: span 1;
   display: flex;
@@ -53,12 +59,6 @@ const GalleryTitleBlock = styled.section`
     margin: 1rem;
     color: lightgray;
   }
-`;
-
-const GalleryContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-  gap: 0.5rem;
 `;
 
 const GalleryItem = styled.div`
