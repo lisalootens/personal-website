@@ -53,6 +53,7 @@ const Background = styled.div`
   background-color: grey;
 `;
 
+// Aware of warning issue: https://github.com/lisalootens/personal-website/issues/36
 const Bar = styled.div<{ duration: number }>`
   width: 100%;
   height: 0.5rem;
