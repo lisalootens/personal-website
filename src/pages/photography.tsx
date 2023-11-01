@@ -1,26 +1,26 @@
-import { CarouselSlider } from "../components/CarouselSlider";
-import { createGlobalStyle } from "styled-components";
+import {CarouselSlider} from "../components/CarouselSlider";
+import {createGlobalStyle} from "styled-components";
 import Head from "next/head";
 
 const Photography = () => {
   const menuPhotos = [
     {
-      name: "dune",
-      src: "images/dune.jpg",
       title: "africa",
-      alt: "Photo of a dune",
+      src: "images/dune.jpg",
+      location: "namibia",
+      description: "Photo of a dune",
     },
     {
-      name: "oryx",
-      src: "images/oryx.jpg",
       title: "asia",
-      alt: "Photo of an oryx",
+      src: "images/oryx.jpg",
+      location: "namibia",
+      description: "Photo of an oryx",
     },
     {
-      name: "zebra",
-      src: "images/zebra.jpg",
       title: "europe",
-      alt: "Photo of a zebra",
+      src: "images/zebra.jpg",
+      location: "namibia",
+      description: "Photo of a zebra",
     },
   ];
 
