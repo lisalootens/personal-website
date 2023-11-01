@@ -1,9 +1,9 @@
 import React from "react";
-import { PhotoInterface } from "../interfaces/PhotoInterface";
+import {Photo} from "../types/Photo";
 import styled from "styled-components";
 
 interface PhotoGalleryProps {
-  photos: PhotoInterface[];
+  photos: Photo[];
   title?: string;
   description?: string;
 }
@@ -24,7 +24,7 @@ export const PhotoGallery: React.FC<PhotoGalleryProps> = ({
         )}
         {photos.map((photo) => (
           <GalleryItem key={photo.src}>
-            <img src={photo.src} alt={photo.name} />
+            <img src={photo.src} alt={photo.title}/>
           </GalleryItem>
         ))}
       </GalleryContainer>
