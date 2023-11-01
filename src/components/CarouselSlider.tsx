@@ -1,11 +1,11 @@
 import React from "react";
-import { useKeenSlider } from "keen-slider/react";
-import { useDurationBar } from "./DurationBar";
-import { PhotoInterface } from "../interfaces/PhotoInterface";
+import {useKeenSlider} from "keen-slider/react";
+import {useDurationBar} from "./DurationBar";
+import {Photo} from "../types/Photo";
 import styled from "styled-components";
 
 interface CarouselSliderProps {
-  photos: PhotoInterface[];
+  photos: Photo[];
   clickable: boolean;
   handleOnClick?: () => any;
   showDurationBar: boolean;
@@ -60,10 +60,10 @@ export const CarouselSlider = ({
       <Wrapper ref={sliderRef}>
         {photos.map((photo) => (
           <Slide
-            key={photo.name}
-            onClick={clickable ? handleOnClick : undefined}
+              key={photo.title}
+              onClick={clickable ? handleOnClick : undefined}
           >
-            <img key={photo.name} src={photo.src} alt={photo.alt} />
+            <img key={photo.title} src={photo.src} alt={photo.description}/>
             <div className="title">{photo.title}</div>
           </Slide>
         ))}
