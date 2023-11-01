@@ -1,76 +1,42 @@
-import { PhotoGallery } from "../components/PhotoGallery";
-import { createGlobalStyle } from "styled-components";
+import {PhotoGallery} from "../components/PhotoGallery";
+import {createGlobalStyle} from "styled-components";
+import {getDocs, QueryDocumentSnapshot} from "firebase/firestore";
+import {photosCollection, storage} from "../config/firebaseConfig";
+import {getDownloadURL, ref} from "firebase/storage";
+import {useState} from "react";
+import {Photo} from "../types/Photo";
+
+async function mapPhotoDocumentToPhoto(document: QueryDocumentSnapshot): Promise<Photo> {
+    const {description, title, src, location} = document.data();
+    const imageReference = ref(storage, src);
+    const imageUrl = await getDownloadURL(imageReference)
+
+    return {title, description, location, src: imageUrl}
+}
+
+async function getFirestoreData() {
+    const documents = await getDocs(photosCollection);
+    const fetchImages = documents.docs.map(mapPhotoDocumentToPhoto);
+
+    return Promise.all(fetchImages);
+}
 
 const TestPage = () => {
-  const menuPhotos = [
-    {
-      name: "dune",
-      src: "images/dune.jpg",
-      title: "africa",
-      alt: "Photo of a dune",
-    },
-    {
-      name: "oryx",
-      src: "images/oryx.jpg",
-      title: "asia",
-      alt: "Photo of an oryx",
-    },
-    {
-      name: "zebra",
-      src: "images/zebra.jpg",
-      title: "europe",
-      alt: "Photo of a zebra",
-    },
-    {
-      name: "dune",
-      src: "images/dune.jpg",
-      title: "africa",
-      alt: "Photo of a dune",
-    },
-    {
-      name: "oryx",
-      src: "images/oryx.jpg",
-      title: "asia",
-      alt: "Photo of an oryx",
-    },
-    {
-      name: "zebra",
-      src: "images/zebra.jpg",
-      title: "europe",
-      alt: "Photo of a zebra",
-    },
-    {
-      name: "dune",
-      src: "images/dune.jpg",
-      title: "africa",
-      alt: "Photo of a dune",
-    },
-    {
-      name: "oryx",
-      src: "images/oryx.jpg",
-      title: "asia",
-      alt: "Photo of an oryx",
-    },
-    {
-      name: "zebra",
-      src: "images/zebra.jpg",
-      title: "europe",
-      alt: "Photo of a zebra",
-    },
-  ];
+    const [photos, setPhotos] = useState<Photo[]>([]);
+    getFirestoreData().then(data => setPhotos(data));
 
-  return (
-    <>
-      <PageStyle />
-      <PhotoGallery
-        photos={menuPhotos}
-        title={"Africa"}
-        description={
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, cum cumque debitis dolorem ducimus fuga harum hic nisi optio pariatur perferendis perspiciatis placeat, possimus provident repellendus sapiente temporibus vero vitae."
-        }
-      />
-    </>
-  );
+    return (
+        <>
+            <PageStyle/>
+            <PhotoGallery
+                photos={photos as unknown as any}
+                title={"Africa"}
+                description={
+                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, cum cumque debitis dolorem ducimus fuga harum hic nisi optio pariatur perferendis perspiciatis placeat, possimus provident repellendus sapiente temporibus vero vitae."
+                }
+            />
+        </>
+    );
 };
 
 export default TestPage;
