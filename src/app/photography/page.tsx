@@ -1,8 +1,10 @@
-import {CarouselSlider} from "../components/CarouselSlider";
-import {createGlobalStyle} from "styled-components";
+"use client";
+
+import { CarouselSlider } from "../../components/CarouselSlider";
+import { createGlobalStyle } from "styled-components";
 import Head from "next/head";
 
-const Photography = () => {
+export default function PhotographyPage() {
   const menuPhotos = [
     {
       title: "africa",
@@ -43,9 +45,7 @@ const Photography = () => {
       />
     </>
   );
-};
-
-export default Photography;
+}
 
 const PageStyle = createGlobalStyle`
   body {
