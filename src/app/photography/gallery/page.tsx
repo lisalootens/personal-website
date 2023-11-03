@@ -5,7 +5,7 @@ import { createGlobalStyle } from "styled-components";
 import { getDocs, QueryDocumentSnapshot } from "firebase/firestore";
 import { photosCollection, storage } from "../../../config/firebaseConfig";
 import { getDownloadURL, ref } from "firebase/storage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Photo } from "../../../types/Photo";
 
 async function mapPhotoDocumentToPhoto(
@@ -27,13 +27,16 @@ async function getFirestoreData() {
 
 export default function Gallery() {
   const [photos, setPhotos] = useState<Photo[]>([]);
-  getFirestoreData().then((data) => setPhotos(data));
+
+  useEffect(() => {
+    getFirestoreData().then((data) => setPhotos(data));
+  }, []);
 
   return (
     <>
       <PageStyle />
       <PhotoGallery
-        photos={menuPhotos}
+        photos={photos}
         title={"Africa"}
         description={
           "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, cum cumque debitis dolorem ducimus fuga harum hic nisi optio pariatur perferendis perspiciatis placeat, possimus provident repellendus sapiente temporibus vero vitae."
@@ -50,24 +53,3 @@ const PageStyle = createGlobalStyle`
   }
 `;
 
-// back-up for developing if FireStore quota for bucket exceeds
-const menuPhotos = [
-  {
-    title: "africa",
-    src: "../images/dune.jpg",
-    location: "namibia",
-    description: "Photo of a dune",
-  },
-  {
-    title: "asia",
-    src: "../images/oryx.jpg",
-    location: "namibia",
-    description: "Photo of an oryx",
-  },
-  {
-    title: "europe",
-    src: "../images/zebra.jpg",
-    location: "namibia",
-    description: "Photo of a zebra",
-  },
-];
