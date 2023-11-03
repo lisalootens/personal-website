@@ -1,7 +1,6 @@
-import React from "react";
-import {useKeenSlider} from "keen-slider/react";
-import {useDurationBar} from "./DurationBar";
-import {Photo} from "../types/Photo";
+import { useKeenSlider } from "keen-slider/react";
+import { useDurationBar } from "./DurationBar";
+import { Photo } from "../types/Photo";
 import styled from "styled-components";
 
 interface CarouselSliderProps {
