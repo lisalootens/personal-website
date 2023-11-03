@@ -3,8 +3,10 @@
 import { CarouselSlider } from "../../components/CarouselSlider";
 import { createGlobalStyle } from "styled-components";
 import Head from "next/head";
+import { useRouter } from "next/navigation";
 
 export default function PhotographyPage() {
+  const router = useRouter();
   const menuPhotos = [
     {
       title: "africa",
@@ -26,9 +28,8 @@ export default function PhotographyPage() {
     },
   ];
 
-  // TODO - page navigation
-  function handleImageClick() {
-    alert("Clicked!");
+  function handleImageClick(path: string) {
+    return router.push(path);
   }
 
   return (
@@ -39,9 +40,9 @@ export default function PhotographyPage() {
       </Head>
       <CarouselSlider
         photos={menuPhotos}
-        clickable={true}
         showDurationBar={true}
-        handleOnClick={handleImageClick}
+        clickable={true}
+        handleOnClick={() => handleImageClick("photography/gallery")}
       />
     </>
   );
