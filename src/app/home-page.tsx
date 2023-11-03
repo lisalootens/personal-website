@@ -1,15 +1,12 @@
-import type { NextPage } from "next";
-import Head from "next/head";
+"use client";
+
 import { Background } from "../components/Background";
 import { Socials } from "../components/Socials";
 import styled from "styled-components";
 
-const Home: NextPage = () => {
+export default function HomePage() {
   return (
     <>
-      <Head>
-        <title>Lisa Lootens</title>
-      </Head>
       <Background />
       <main>
         <Wrapper>
@@ -25,9 +22,7 @@ const Home: NextPage = () => {
       </main>
     </>
   );
-};
-
-export default Home;
+}
 
 const Title = styled.h1`
   color: white;
@@ -73,4 +68,3 @@ const Description = styled.p`
     font-size: 1rem;
   }
 `;
-
