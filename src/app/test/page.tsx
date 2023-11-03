@@ -50,7 +50,6 @@ const PageStyle = createGlobalStyle`
   }
 `;
 
-// TODO - fix this and remove before commit
 // back-up for developing if FireStore quota for bucket exceeds
 const menuPhotos = [
   {
