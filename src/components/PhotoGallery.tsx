@@ -1,5 +1,4 @@
-import React from "react";
-import {Photo} from "../types/Photo";
+import { Photo } from "../types/Photo";
 import styled from "styled-components";
 
 interface PhotoGalleryProps {
@@ -24,7 +23,7 @@ export const PhotoGallery: React.FC<PhotoGalleryProps> = ({
         )}
         {photos.map((photo) => (
           <GalleryItem key={photo.src}>
-            <img src={photo.src} alt={photo.title}/>
+            <img src={photo.src} alt={photo.description} />
           </GalleryItem>
         ))}
       </GalleryContainer>
@@ -67,4 +66,5 @@ const GalleryItem = styled.div`
     height: 100%;
     object-fit: cover;
     border-radius: 0.5rem;
+    color: white;
 `;

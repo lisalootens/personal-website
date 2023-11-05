@@ -6,8 +6,9 @@ import styled from "styled-components";
 interface CarouselSliderProps {
   photos: Photo[];
   clickable: boolean;
-  handleOnClick?: () => any;
+  handleOnClick?: any;
   showDurationBar: boolean;
+  showTitle: boolean;
 }
 
 export const CarouselSlider = ({
@@ -15,6 +16,7 @@ export const CarouselSlider = ({
   clickable,
   handleOnClick,
   showDurationBar,
+  showTitle,
 }: CarouselSliderProps) => {
   const SLIDE_DURATION = 5 * 1000;
   const { DurationBar, startDurationBar, stopDurationBar } =
@@ -59,11 +61,12 @@ export const CarouselSlider = ({
       <Wrapper ref={sliderRef}>
         {photos.map((photo) => (
           <Slide
-              key={photo.title}
-              onClick={clickable ? handleOnClick : undefined}
+            key={photo.name}
+            onClick={clickable ? handleOnClick : undefined}
+            data-title={photo.name}
           >
-            <img key={photo.title} src={photo.src} alt={photo.description}/>
-            <div className="title">{photo.title}</div>
+            <img key={photo.name} src={photo.src} alt={photo.description} />
+            <div className="title">{showTitle ? photo.name : null}</div>
           </Slide>
         ))}
         {showDurationBar && <DurationBar />}
@@ -107,5 +110,6 @@ const Slide = styled.div.attrs({ className: "keen-slider__slide" })`
     object-position: center;
     width: 100%;
     height: 100%;
+    color: white;
   }
 `;
