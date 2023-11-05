@@ -1,35 +1,42 @@
 "use client";
 
+import Head from "next/head";
 import { CarouselSlider } from "../../components/CarouselSlider";
 import { createGlobalStyle } from "styled-components";
-import Head from "next/head";
 import { useRouter } from "next/navigation";
 
 export default function PhotographyPage() {
   const router = useRouter();
   const menuPhotos = [
     {
-      title: "africa",
+      name: "africa",
       src: "images/dune.jpg",
       location: "namibia",
       description: "Photo of a dune",
     },
     {
-      title: "asia",
+      name: "asia",
       src: "images/oryx.jpg",
       location: "namibia",
       description: "Photo of an oryx",
     },
     {
-      title: "europe",
+      name: "europe",
       src: "images/zebra.jpg",
       location: "namibia",
       description: "Photo of a zebra",
     },
   ];
 
-  function handleImageClick(path: string) {
-    return router.push(path);
+  function handleImageClick(event: React.MouseEvent<HTMLElement>) {
+    const name = (event.currentTarget as HTMLImageElement).getAttribute(
+      "data-title",
+    );
+
+    if (name == null) {
+      throw new Error("Unavailable.");
+    }
+    return router.push(`photography/gallery?name=${encodeURIComponent(name)}`);
   }
 
   return (
@@ -41,8 +48,9 @@ export default function PhotographyPage() {
       <CarouselSlider
         photos={menuPhotos}
         showDurationBar={true}
+        showTitle={true}
         clickable={true}
-        handleOnClick={() => handleImageClick("photography/gallery")}
+        handleOnClick={handleImageClick}
       />
     </>
   );
