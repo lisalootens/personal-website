@@ -100,8 +100,12 @@ export const PhotoGallery: React.FC<PhotoGalleryProps> = ({
 
 const GalleryContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
   gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+
+  @media (max-width: 510px) {
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  }
 `;
 
 const GalleryTitleBlock = styled.section`
