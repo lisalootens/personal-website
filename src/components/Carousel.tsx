@@ -97,9 +97,12 @@ const ArrowWrapper = styled.div`
     width: 2rem;
     height: 2rem;
     position: absolute;
-    fill: black;
+    color: white;
     cursor: pointer;
+    margin: 5rem;
     padding: 1rem;
+    border: 2px solid white;
+    border-radius: 50%;
     z-index: 1;
   }
 
