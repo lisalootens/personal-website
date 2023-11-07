@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { Photo } from "../../../types/Photo";
 import { useSearchParams } from "next/navigation";
 import { BackButton } from "../../../components/buttons/BackButton";
+import { MoveUpButton } from "../../../components/buttons/MoveUpButton";
 
 async function mapPhotoDocumentToPhoto(
   document: QueryDocumentSnapshot,
@@ -55,6 +56,7 @@ export default function Gallery() {
     <>
       <PageStyle />
       <BackButton />
+      <MoveUpButton />
       <PhotoGallery
         photos={photos}
         title={name}
