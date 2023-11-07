@@ -12,9 +12,18 @@ import { useSearchParams } from "next/navigation";
 async function mapPhotoDocumentToPhoto(
   document: QueryDocumentSnapshot,
 ): Promise<Photo> {
-  const { description, name, src, location } = document.data();
+  const { description, name, location } = document.data();
+  let { src } = document.data();
+  let imageUrl: string;
   const imageReference = ref(storage, src);
-  const imageUrl = await getDownloadURL(imageReference);
+
+  try {
+    imageUrl = await getDownloadURL(imageReference);
+  } catch (error) {
+    console.log(`Skipped photo ${name}: ${src} not found.`);
+    imageUrl = "skipped";
+    return { name, description, location, src: imageUrl };
+  }
 
   return { name, description, location, src: imageUrl };
 }
@@ -22,8 +31,9 @@ async function mapPhotoDocumentToPhoto(
 async function getFirestoreData(collection: string) {
   const documents = await getDocs(photoCollection(collection));
   const fetchImages = documents.docs.map(mapPhotoDocumentToPhoto);
+  const retrievedImages = await Promise.all(fetchImages);
 
-  return Promise.all(fetchImages);
+  return retrievedImages.filter((photo) => photo.src !== "skipped") as Photo[];
 }
 
 export default function Gallery() {
