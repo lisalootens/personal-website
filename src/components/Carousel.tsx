@@ -8,6 +8,7 @@ import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 interface CarouselProps {
   photos: Photo[];
+  startAtIndex?: number;
 }
 
 function Arrow(props: {
@@ -27,11 +28,13 @@ function Arrow(props: {
   );
 }
 
-export const Carousel = ({ photos }: CarouselProps) => {
-  const [currentSlide, setCurrentSlide] = React.useState(0);
+export const Carousel = ({ photos, startAtIndex }: CarouselProps) => {
+  const [currentSlide, setCurrentSlide] = React.useState(
+    startAtIndex ? startAtIndex : 0,
+  );
   const [loaded, setLoaded] = useState(false);
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
-    initial: 0,
+    initial: startAtIndex,
     slideChanged(slider) {
       setCurrentSlide(slider.track.details.rel);
     },
@@ -99,15 +102,19 @@ const ArrowWrapper = styled.div`
     position: absolute;
     color: white;
     cursor: pointer;
-    margin: 5rem;
-    padding: 1rem;
-    border: 2px solid white;
-    border-radius: 50%;
+    margin: 0 2rem;
+    padding: 0.5rem;
     z-index: 1;
+
+    @media (max-width: 960px) {
+      width: 1rem;
+      height: 1rem;
+    }
   }
 
   .arrow-left {
     left: 0;
+    margin: 0;
   }
 
   .arrow-right {

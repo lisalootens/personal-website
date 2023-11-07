@@ -1,7 +1,8 @@
 import { Photo } from "../types/Photo";
 import styled from "styled-components";
 import { useState } from "react";
-import { GalleryModal } from "./GalleryModal";
+import { Modal } from "./Modal";
+import { Carousel } from "./Carousel";
 
 interface PhotoGalleryProps {
   photos: Photo[];
@@ -15,9 +16,11 @@ export const PhotoGallery: React.FC<PhotoGalleryProps> = ({
   description,
 }) => {
   const [expandedPhoto, setExpandedPhoto] = useState<Photo>();
+  const [index, setIndex] = useState<number>(0);
 
-  const handleImageClick = (photo: Photo) => {
+  const handleImageClick = (photo: Photo, index: number) => {
     setExpandedPhoto(photo);
+    setIndex(index);
   };
 
   return (
@@ -29,20 +32,21 @@ export const PhotoGallery: React.FC<PhotoGalleryProps> = ({
             <p>{description}</p>
           </GalleryTitleBlock>
         )}
-        {photos.map((photo) => (
-          <GalleryItem key={photo.src}>
-            <img
-              src={photo.src}
-              alt={photo.description}
-              onClick={() => handleImageClick(photo)}
-            />
-          </GalleryItem>
-        ))}
+        {photos.map((photo, index) => {
+          return (
+            <GalleryItem key={photo.src}>
+              <img
+                src={photo.src}
+                alt={photo.description}
+                onClick={() => handleImageClick(photo, index)}
+              />
+            </GalleryItem>
+          );
+        })}
         {expandedPhoto && (
-          <GalleryModal
+          <Modal
+            children={<Carousel photos={photos} startAtIndex={index} />}
             onClose={() => setExpandedPhoto(undefined)}
-            src={expandedPhoto.src}
-            alt={expandedPhoto.description}
           />
         )}
       </GalleryContainer>
@@ -84,6 +88,8 @@ const GalleryTitleBlock = styled.section`
 `;
 
 const GalleryItem = styled.div`
+  cursor: pointer;
+
   img {
     width: 100%;
     height: 100%;

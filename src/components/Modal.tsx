@@ -20,13 +20,13 @@ const ModalContainer = styled.section`
   padding-top: 2rem;
   width: 100vw;
   height: 100vh;
-  background: rgba(21, 21, 21, 0.7);
+  background: rgba(21, 21, 21, 0.75);
 `;
 
 const CloseButton = styled.button`
   position: absolute;
-  top: 2rem;
-  right: 5rem;
+  top: 2vh;
+  right: 2vw;
   padding: 0.5rem 1rem;
   background: none;
   border: none;
@@ -34,4 +34,8 @@ const CloseButton = styled.button`
   font-size: 1rem;
   color: white;
   z-index: 1;
+
+  @media (max-width: 480px) {
+    font-size: 0.5rem;
+  }
 `;
