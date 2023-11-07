@@ -72,8 +72,8 @@ const GalleryTitleBlock = styled.section`
   color: white;
   text-align: center;
   background-color: #2a2a2a;
-  padding: 1rem;
   border-radius: 0.5rem;
+  max-height: 30rem;
 
   h1 {
     font-size: 2rem;
@@ -84,6 +84,7 @@ const GalleryTitleBlock = styled.section`
   p {
     margin: 1rem;
     color: lightgray;
+    padding: 1rem;
   }
 `;
 
@@ -93,6 +94,7 @@ const GalleryItem = styled.div`
   img {
     width: 100%;
     height: 100%;
+    max-height: 30rem;
     object-fit: cover;
     border-radius: 0.5rem;
     color: white;
