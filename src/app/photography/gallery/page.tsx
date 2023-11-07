@@ -8,7 +8,7 @@ import { getDownloadURL, ref } from "firebase/storage";
 import { useEffect, useState } from "react";
 import { Photo } from "../../../types/Photo";
 import { useSearchParams } from "next/navigation";
-import { BackButtonCircle } from "../../../components/BackButtonCircle";
+import { BackButton } from "../../../components/buttons/BackButton";
 
 async function mapPhotoDocumentToPhoto(
   document: QueryDocumentSnapshot,
@@ -54,7 +54,7 @@ export default function Gallery() {
   return (
     <>
       <PageStyle />
-      <BackButtonCircle />
+      <BackButton />
       <PhotoGallery
         photos={photos}
         title={name}
