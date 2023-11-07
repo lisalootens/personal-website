@@ -77,6 +77,7 @@ export const CarouselSlider = ({
 
 const Wrapper = styled.section`
   display: flex;
+  background: black;
 `;
 
 const Slide = styled.div.attrs({ className: "keen-slider__slide" })`
@@ -95,13 +96,14 @@ const Slide = styled.div.attrs({ className: "keen-slider__slide" })`
     font-size: 8vw;
     font-weight: bold;
     cursor: pointer;
+    opacity: 0.7;
 
     @media (max-width: 960px) {
       font-size: 15vw;
     }
 
-    :hover {
-      opacity: 0.9;
+    &:hover {
+      opacity: 1;
     }
   }
 
@@ -111,5 +113,6 @@ const Slide = styled.div.attrs({ className: "keen-slider__slide" })`
     width: 100%;
     height: 100%;
     color: white;
+    opacity: 0.7;
   }
 `;

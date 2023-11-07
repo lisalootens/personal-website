@@ -10,21 +10,21 @@ export default function PhotographyPage() {
   const menuPhotos = [
     {
       name: "africa",
-      src: "images/dune.jpg",
+      src: "images/africa.jpg",
       location: "namibia",
-      description: "Photo of a dune",
+      description: "Photo of a elephant",
     },
     {
       name: "asia",
-      src: "images/oryx.jpg",
-      location: "namibia",
-      description: "Photo of an oryx",
+      src: "images/asia.jpg",
+      location: "india",
+      description: "Photo of a mosque",
     },
     {
       name: "europe",
-      src: "images/zebra.jpg",
-      location: "namibia",
-      description: "Photo of a zebra",
+      src: "images/europe.jpg",
+      location: "the netherlands",
+      description: "Photo of a tree at a foggy sunrise",
     },
   ];
 
