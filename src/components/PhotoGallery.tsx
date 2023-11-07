@@ -21,6 +21,7 @@ export const PhotoGallery: React.FC<PhotoGalleryProps> = ({
   const handleImageClick = (photo: Photo, index: number) => {
     setExpandedPhoto(photo);
     setIndex(index);
+    document.body.classList.add("modal-open");
   };
 
   return (
@@ -79,6 +80,7 @@ const GalleryTitleBlock = styled.section`
     font-size: 2rem;
     text-transform: uppercase;
     letter-spacing: 5px;
+    padding-top: 1rem;
   }
 
   p {

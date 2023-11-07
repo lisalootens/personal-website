@@ -83,6 +83,10 @@ const Wrapper = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 480px) {
+    padding: 0;
+  }
 `;
 
 const ImageContainer = styled.div`

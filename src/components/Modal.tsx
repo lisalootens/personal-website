@@ -7,9 +7,14 @@ interface ModalProps {
 }
 
 export const Modal: FC<ModalProps> = ({ onClose, children }) => {
+  const handleModalClose = () => {
+    document.body.classList.remove("modal-open");
+    onClose();
+  };
+
   return (
     <ModalContainer>
-      <CloseButton onClick={onClose}>close</CloseButton>
+      <CloseButton onClick={handleModalClose}>close</CloseButton>
       {children}
     </ModalContainer>
   );
@@ -17,6 +22,8 @@ export const Modal: FC<ModalProps> = ({ onClose, children }) => {
 
 const ModalContainer = styled.section`
   position: fixed;
+  top: 0;
+  overflow: hidden;
   padding-top: 2rem;
   width: 100vw;
   height: 100vh;
