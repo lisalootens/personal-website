@@ -44,6 +44,7 @@ const SocialIcon = styled.a`
 
   :hover {
     opacity: 0.7;
+    cursor: pointer;
   }
 `;
 
