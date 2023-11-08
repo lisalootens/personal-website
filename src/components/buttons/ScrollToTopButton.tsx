@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Arrows } from "../../types/Arrows";
 import { useEffect, useState } from "react";
 
-export const MoveUpButton = () => {
+export const ScrollToTopButton = () => {
   const [showButton, setShowButton] = useState(false);
 
   const handleScroll = () => {
