@@ -8,7 +8,8 @@ interface ModalProps {
 
 export const Modal: FC<ModalProps> = ({ onClose, children }) => {
   const handleModalClose = () => {
-    document.body.classList.remove("modal-open");
+    // Set overflow property to default
+    document.body.style.overflow = "";
     onClose();
   };
 
@@ -41,8 +42,4 @@ const CloseButton = styled.button`
   font-size: 1rem;
   color: white;
   z-index: 1;
-
-  @media (max-width: 480px) {
-    font-size: 0.5rem;
-  }
 `;

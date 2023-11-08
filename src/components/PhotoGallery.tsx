@@ -21,7 +21,7 @@ export const PhotoGallery: React.FC<PhotoGalleryProps> = ({
   const handleImageClick = (photo: Photo, index: number) => {
     setExpandedPhoto(photo);
     setIndex(index);
-    document.body.classList.add("modal-open");
+    document.body.style.overflow = "hidden";
   };
 
   return (
