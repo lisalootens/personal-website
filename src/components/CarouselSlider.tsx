@@ -58,7 +58,7 @@ export const CarouselSlider = ({
 
   return (
     <>
-      <Wrapper ref={sliderRef}>
+      <Wrapper ref={sliderRef} className={"keen-slider"}>
         {photos.map((photo) => (
           <Slide
             key={photo.name}
