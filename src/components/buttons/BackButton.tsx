@@ -6,7 +6,7 @@ export const BackButton = () => {
   const router = useRouter();
 
   return (
-    <>
+    <div tabIndex={-1}>
       <SvgButton onClick={() => router.back()}>
         <svg height="60" width="60" xmlns="http://www.w3.org/2000/svg">
           <circle className="shape" cx="30" cy="30" r="20" />
@@ -15,7 +15,12 @@ export const BackButton = () => {
           </text>
         </svg>
       </SvgButton>
-    </>
+      <style jsx>{`
+        .shape:focus {
+          outline: -webkit-focus-ring-color auto 0;
+        }
+      `}</style>
+    </div>
   );
 };
 
