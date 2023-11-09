@@ -5,7 +5,7 @@ node_modules
 .next
 
 # other
-.DS_Store
+*.DS_Store
 .idea
 .vscode
 service-account.json
