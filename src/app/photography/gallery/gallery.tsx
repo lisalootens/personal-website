@@ -10,6 +10,11 @@ import { Photo } from "../../../types/Photo";
 import { useSearchParams } from "next/navigation";
 import { BackButton } from "../../../components/buttons/BackButton";
 import { ScrollToTopButton } from "../../../components/buttons/ScrollToTopButton";
+import {
+  descriptionAfrica,
+  descriptionAsia,
+  descriptionEurope,
+} from "../../../../public/texts/descriptions";
 
 async function mapPhotoDocumentToPhoto(
   document: QueryDocumentSnapshot,
@@ -43,6 +48,19 @@ export default function Gallery() {
   const [collection, setCollection] = useState("");
   const name = useSearchParams().get("name");
 
+  let description = (() => {
+    switch (name) {
+      case "africa":
+        return descriptionAfrica;
+      case "asia":
+        return descriptionAsia;
+      case "europe":
+        return descriptionEurope;
+      default:
+        return undefined;
+    }
+  })();
+
   if (!name) {
     throw new Error("Oops, something went wrong!");
   }
@@ -57,13 +75,7 @@ export default function Gallery() {
       <PageStyle />
       <BackButton />
       <ScrollToTopButton />
-      <PhotoGallery
-        photos={photos}
-        title={name}
-        description={
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, cum cumque debitis dolorem ducimus fuga harum hic nisi optio pariatur perferendis perspiciatis placeat, possimus provident repellendus sapiente temporibus vero vitae."
-        }
-      />
+      <PhotoGallery photos={photos} title={name} description={description} />
     </>
   );
 }
