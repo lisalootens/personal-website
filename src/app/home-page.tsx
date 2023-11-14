@@ -1,70 +1,28 @@
 "use client";
 
-import { Background } from "../components/Background";
+import { CirclesBackground } from "../components/backgrounds/CirclesBackground";
 import { Socials } from "../components/Socials";
-import styled from "styled-components";
 
 export default function HomePage() {
   return (
     <>
-      <Background />
+      <CirclesBackground />
       <main>
-        <Wrapper>
-          <Title>
-            Hi, I am <span>Lisa Lootens</span>.
-          </Title>
-          <Description>
+        <section
+          className={
+            "flex flex-col items-center justify-center text-center min-h-screen m-4"
+          }
+        >
+          <h1 className={"text-gray-200 text-4xl font-bold md:text-7xl"}>
+            Hi, I am <span className={"text-amber-600"}>Lisa Lootens</span>.
+          </h1>
+          <p className={"text-gray-200 m-4 text-base md:text-xl"}>
             Learning to become a developer! I am currently focussing on Java.
             Recently started as a Software Engineer at Ordina.
-          </Description>
+          </p>
           <Socials />
-        </Wrapper>
+        </section>
       </main>
     </>
   );
 }
-
-const Title = styled.h1`
-  color: white;
-  font-size: 3rem;
-  font-weight: bold;
-
-  @media (min-width: 960px) {
-    font-size: 4.5rem;
-    margin: 1.5vh 5vw;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 2rem;
-  }
-`;
-
-const Wrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  min-height: 100vh;
-
-  span {
-    color: rgb(255, 145, 0);
-    font-weight: bold;
-  }
-`;
-
-const Description = styled.p`
-  color: lightgray;
-  margin: 0.5vh 5vw 5vh;
-  font-size: 1.125rem;
-  max-width: 800px;
-
-  @media (min-width: 960px) {
-    font-size: 1.5rem;
-    margin: 0.5vh 5vw 5vh;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 1rem;
-  }
-`;
