@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { FC, ReactNode } from "react";
 
 interface ModalProps {
@@ -14,32 +13,20 @@ export const Modal: FC<ModalProps> = ({ onClose, children }) => {
   };
 
   return (
-    <ModalContainer>
-      <CloseButton onClick={handleModalClose}>close</CloseButton>
+    <section
+      className={
+        "fixed top-0 overflow-hidden pt-8 w-screen h-screen bg-[#151515BF]"
+      }
+    >
+      <button
+        className={
+          " absolute top-[2vh] right-[2vw] py-4 px-2 text-white text-base z-10 capitalize"
+        }
+        onClick={handleModalClose}
+      >
+        close
+      </button>
       {children}
-    </ModalContainer>
+    </section>
   );
 };
-
-const ModalContainer = styled.section`
-  position: fixed;
-  top: 0;
-  overflow: hidden;
-  padding-top: 2rem;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(21, 21, 21, 0.75);
-`;
-
-const CloseButton = styled.button`
-  position: absolute;
-  top: 2vh;
-  right: 2vw;
-  padding: 0.5rem 1rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  color: white;
-  z-index: 1;
-`;
