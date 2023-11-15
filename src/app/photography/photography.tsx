@@ -1,7 +1,6 @@
 "use client";
 
 import { CarouselSlider } from "../../components/CarouselSlider";
-import { createGlobalStyle } from "styled-components";
 import { useRouter } from "next/navigation";
 
 export default function PhotographyPage() {
@@ -39,8 +38,7 @@ export default function PhotographyPage() {
   }
 
   return (
-    <>
-      <PageStyle />
+    <div className={"overflow-hidden"}>
       <CarouselSlider
         photos={menuPhotos}
         showDurationBar={true}
@@ -48,13 +46,6 @@ export default function PhotographyPage() {
         clickable={true}
         handleOnClick={handleImageClick}
       />
-    </>
+    </div>
   );
 }
-
-const PageStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    overflow: hidden;
-  }
-`;

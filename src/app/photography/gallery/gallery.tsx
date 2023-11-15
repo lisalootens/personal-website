@@ -1,7 +1,6 @@
 "use client";
 
 import { PhotoGallery } from "../../../components/PhotoGallery";
-import { createGlobalStyle } from "styled-components";
 import { getDocs, QueryDocumentSnapshot } from "firebase/firestore";
 import { photoCollection, storage } from "../../../config/firebaseConfig";
 import { getDownloadURL, ref } from "firebase/storage";
@@ -72,18 +71,12 @@ export default function Gallery() {
 
   return (
     <>
-      <PageStyle />
-      <BackButton />
-      <ScrollToTopButton />
-      <PhotoGallery photos={photos} title={name} description={description} />
+      <div className={"p-4 h-screen"}>
+        <BackButton />
+        <ScrollToTopButton />
+        <PhotoGallery photos={photos} title={name} description={description} />
+      </div>
     </>
   );
 }
-
-const PageStyle = createGlobalStyle`
-  body {
-    margin: 1rem;
-    background: #1f1f1f;
-  }
-`;
 

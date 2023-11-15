@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { Photo } from "../types/Photo";
-import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
@@ -16,14 +15,14 @@ function Arrow(props: {
   left?: boolean;
   onClick: (e: any) => void;
 }) {
-  const disabled = props.disabled ? " arrow-disabled" : "";
+  const disabled = props.disabled ? "hidden" : "";
   return (
     <FontAwesomeIcon
       icon={faChevronLeft}
       onClick={props.onClick}
-      className={`arrow ${
-        props.left ? "arrow-left" : "arrow-right"
-      } ${disabled}`}
+      className={`${
+        props.left ? "left-0 m-0" : "rotate-180 right-0"
+      } ${disabled} w-8 h-8 absolute text-white cursor-pointer my-0 p-2 z-10 text-2xl max-sm:w-4 max-sm:h-4`}
     />
   );
 }
@@ -45,16 +44,24 @@ export const Carousel = ({ photos, startAtIndex }: CarouselProps) => {
 
   return (
     <>
-      <Wrapper>
-        <div ref={sliderRef} className="keen-slider">
+      <section className={"p-4 flex items-center justify-center max-sm:p-0"}>
+        <div ref={sliderRef} className="keen-slider ml-6">
           {photos.map((photo) => (
-            <ImageContainer className={"keen-slider__slide"} key={photo.src}>
-              <ExpandedImage key={photo.src} src={photo.src} />
-            </ImageContainer>
+            <div
+              className={"keen-slider__slide flex items-center justify-center"}
+              key={photo.src}
+            >
+              <img
+                alt={photo.description}
+                className={"max-w-[80vw] max-h-[80vh] rounded-xl object-cover"}
+                key={photo.src}
+                src={photo.src}
+              />
+            </div>
           ))}
         </div>
         {loaded && instanceRef.current && (
-          <ArrowWrapper>
+          <div className={"flex items-center justify-center p-3.5"}>
             <Arrow
               left
               onClick={(e: any) =>
@@ -71,69 +78,9 @@ export const Carousel = ({ photos, startAtIndex }: CarouselProps) => {
                 instanceRef.current.track.details.slides.length - 1
               }
             />
-          </ArrowWrapper>
+          </div>
         )}
-      </Wrapper>
+      </section>
     </>
   );
 };
-
-const Wrapper = styled.section`
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  @media (max-width: 480px) {
-    padding: 0;
-  }
-`;
-
-const ImageContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const ArrowWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-
-  .arrow {
-    width: 2rem;
-    height: 2rem;
-    position: absolute;
-    color: white;
-    cursor: pointer;
-    margin: 0 2rem;
-    padding: 0.5rem;
-    z-index: 1;
-
-    @media (max-width: 960px) {
-      width: 1rem;
-      height: 1rem;
-    }
-  }
-
-  .arrow-left {
-    left: 0;
-    margin: 0;
-  }
-
-  .arrow-right {
-    right: 0;
-    rotate: 180deg;
-  }
-
-  .arrow-disabled {
-    display: none;
-  }
-`;
-
-const ExpandedImage = styled.img`
-  max-width: 80vw;
-  max-height: 80vh;
-  border-radius: 0.5rem;
-  object-fit: cover;
-`;

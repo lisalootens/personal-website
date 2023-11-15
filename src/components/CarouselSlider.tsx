@@ -1,7 +1,6 @@
 import { useKeenSlider } from "keen-slider/react";
 import { useDurationBar } from "./DurationBar";
 import { Photo } from "../types/Photo";
-import styled from "styled-components";
 
 interface CarouselSliderProps {
   photos: Photo[];
@@ -58,61 +57,29 @@ export const CarouselSlider = ({
 
   return (
     <>
-      <Wrapper ref={sliderRef} className={"keen-slider"}>
+      <section ref={sliderRef} className={"keen-slider flex bg-black h-screen"}>
         {photos.map((photo) => (
-          <Slide
+          <section
+            className={
+              "keen-slider__slide min-w-full h-screen relative overflow-hidden"
+            }
             key={photo.name}
             onClick={clickable ? handleOnClick : undefined}
             data-title={photo.name}
           >
-            <img key={photo.name} src={photo.src} alt={photo.description} />
-            <div className="title">{showTitle ? photo.name : null}</div>
-          </Slide>
+            <img
+              className={"object-cover object-center w-full h-full opacity-70"}
+              key={photo.name}
+              src={photo.src}
+              alt={photo.description}
+            />
+            <h1 className="text-8xl capitalize absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-capitalize text-white text-8vw font-bold cursor-pointer opacity-80 hover:opacity-100 max-sm:text-5xl">
+              {showTitle ? photo.name : null}
+            </h1>
+          </section>
         ))}
         {showDurationBar && <DurationBar />}
-      </Wrapper>
+      </section>
     </>
   );
 };
-
-const Wrapper = styled.section`
-  display: flex;
-  background: black;
-`;
-
-const Slide = styled.div.attrs({ className: "keen-slider__slide" })`
-  min-width: 100%;
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-
-  .title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-transform: capitalize;
-    color: white;
-    font-size: 8vw;
-    font-weight: bold;
-    cursor: pointer;
-    opacity: 0.7;
-
-    @media (max-width: 960px) {
-      font-size: 15vw;
-    }
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-
-  img {
-    object-fit: cover;
-    object-position: center;
-    width: 100%;
-    height: 100%;
-    color: white;
-    opacity: 0.7;
-  }
-`;

@@ -1,5 +1,5 @@
-import { useReducer, useState } from "react";
-import styled from "styled-components";
+import { useEffect, useReducer, useState } from "react";
+import "./animations.css";
 
 type DurationBarProps = {
   duration: number;
@@ -7,16 +7,30 @@ type DurationBarProps = {
 };
 
 function DurationBar({ isRunning, duration }: DurationBarProps) {
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      "--animation-duration",
+      `${duration}ms`,
+    );
+
+    // Cleanup function to remove the style when the component unmounts
+    return () => {
+      document.documentElement.style.removeProperty("--animation-duration");
+    };
+  }, [duration]);
+
   return (
-    <Container>
-      <Background>
+    <div className={"absolute bottom-0 left-0 w-full h-2 z-20"}>
+      <div className={"w-full h-2 bg-gray-500"}>
         {isRunning ? (
-          <RunningBar duration={duration} />
+          <div className={`progress-animation w-full h-2 bg-gray-400`} />
         ) : (
-          <Bar duration={duration} />
+          <div
+            className={`w-full h-0.5 bg-gray-500 transition-opacity duration-${duration} opacity-50`}
+          />
         )}
-      </Background>
-    </Container>
+      </div>
+    </div>
   );
 }
 
@@ -37,39 +51,3 @@ export function useDurationBar(duration: number) {
     },
   };
 }
-
-const Container = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 0.5rem;
-  z-index: 2;
-`;
-
-const Background = styled.div`
-  width: 100%;
-  height: 0.5rem;
-  background-color: grey;
-`;
-
-// Aware of warning issue: https://github.com/styled-components/styled-components/pull/4084
-const Bar = styled.div<{ duration: number }>`
-  width: 100%;
-  height: 0.5rem;
-  background-color: transparent;
-`;
-
-const RunningBar = styled(Bar)`
-  background-color: darkgrey;
-  animation: progressAnimation ${(props) => props.duration}ms;
-
-  @keyframes progressAnimation {
-    from {
-      width: 0;
-    }
-    to {
-      width: 100%;
-    }
-  }
-`;
