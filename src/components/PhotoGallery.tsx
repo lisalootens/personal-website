@@ -54,6 +54,7 @@ export const PhotoGallery: React.FC<PhotoGalleryProps> = ({
               }
               src={photo.src}
               alt={photo.description}
+              key={photo.src}
               onClick={() => handleImageClick(photo, index)}
             />
           );
