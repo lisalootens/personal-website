@@ -73,7 +73,7 @@ export const CarouselSlider = ({
               src={photo.src}
               alt={photo.description}
             />
-            <h1 className="text-8xl capitalize absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-capitalize text-white text-8vw font-bold cursor-pointer opacity-70 hover:opacity-100">
+            <h1 className="text-8xl capitalize absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-capitalize text-white text-8vw font-bold cursor-pointer opacity-80 hover:opacity-100">
               {showTitle ? photo.name : null}
             </h1>
           </section>

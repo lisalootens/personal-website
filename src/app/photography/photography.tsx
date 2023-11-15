@@ -1,7 +1,6 @@
 "use client";
 
 import { CarouselSlider } from "../../components/CarouselSlider";
-import { createGlobalStyle } from "styled-components";
 import { useRouter } from "next/navigation";
 
 export default function PhotographyPage() {
@@ -40,7 +39,6 @@ export default function PhotographyPage() {
 
   return (
     <>
-      <PageStyle />
       <CarouselSlider
         photos={menuPhotos}
         showDurationBar={true}
@@ -51,10 +49,3 @@ export default function PhotographyPage() {
     </>
   );
 }
-
-const PageStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    overflow: hidden;
-  }
-`;
