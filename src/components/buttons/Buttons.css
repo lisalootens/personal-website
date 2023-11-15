@@ -1,28 +1,30 @@
-.back-button {
-    position: absolute;
+.default-button {
     background: none;
     border: none;
 }
 
-.shape {
+.default-button .shape {
     stroke-dasharray: 140 540;
     stroke-dashoffset: -474;
     stroke-width: 2px;
-    fill: transparent;
     stroke: #19f6e8;
     transition: stroke-width 0.5s,
     stroke-dashoffset 0.5s,
     stroke-dasharray 0.5s;
 }
 
-text {
+.default-button text {
     cursor: pointer;
     font-size: 1rem;
     z-index: 1;
     fill: #c0c0c0;
 }
 
-svg:hover .shape {
+.default-button text:hover {
+    fill: white;
+}
+
+.default-button svg:hover .shape {
     stroke-width: 1px;
     stroke-dashoffset: 0;
     stroke-dasharray: 760;
