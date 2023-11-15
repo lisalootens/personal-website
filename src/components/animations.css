@@ -1,0 +1,17 @@
+:root {
+    --animation-duration: 1s;
+}
+
+@keyframes progressAnimation {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.progress-animation {
+    animation: progressAnimation var(--animation-duration);
+}
+

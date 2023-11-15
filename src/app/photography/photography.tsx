@@ -38,7 +38,7 @@ export default function PhotographyPage() {
   }
 
   return (
-    <>
+    <div className={"overflow-hidden"}>
       <CarouselSlider
         photos={menuPhotos}
         showDurationBar={true}
@@ -46,6 +46,6 @@ export default function PhotographyPage() {
         clickable={true}
         handleOnClick={handleImageClick}
       />
-    </>
+    </div>
   );
 }
