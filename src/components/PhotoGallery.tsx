@@ -40,10 +40,16 @@ export const PhotoGallery: React.FC<PhotoGalleryProps> = ({
               "col-span-1 flex flex-col justify-center text-center text-gray-300 bg-[#2a2a2a] rounded-lg max-h-[30rem]"
             }
           >
-            <h1 className={"text-4xl uppercase tracking-widest pt-4"}>
+            <h1
+              className={
+                "text-4xl uppercase tracking-widest pt-4 max-sm:text-2xl"
+              }
+            >
               {title}
             </h1>
-            <p className={"m-4 text-gray-300 p-4"}>{description}</p>
+            <p className={"m-4 text-gray-300 p-4 max-sm:text-sm"}>
+              {description}
+            </p>
           </section>
         )}
         {photos.map((photo, index) => {

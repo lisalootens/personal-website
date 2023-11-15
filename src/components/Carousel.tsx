@@ -49,6 +49,7 @@ export const Carousel = ({ photos, startAtIndex }: CarouselProps) => {
           {photos.map((photo) => (
             <div
               className={"keen-slider__slide flex items-center justify-center"}
+              key={photo.src}
             >
               <img
                 alt={photo.description}

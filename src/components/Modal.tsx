@@ -15,7 +15,7 @@ export const Modal: FC<ModalProps> = ({ onClose, children }) => {
   return (
     <section
       className={
-        "fixed top-0 left-0 overflow-hidden pt-8 w-screen h-screen bg-[#151515BF]"
+        "fixed top-0 left-0 overflow-hidden pt-20 w-screen h-screen bg-[#151515BF]"
       }
     >
       <button
