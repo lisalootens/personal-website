@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import "./animations.css";
 
 type DurationBarProps = {
@@ -7,10 +7,18 @@ type DurationBarProps = {
 };
 
 function DurationBar({ isRunning, duration }: DurationBarProps) {
-  document.documentElement.style.setProperty(
-    "--animation-duration",
-    `${duration}ms`,
-  );
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      "--animation-duration",
+      `${duration}ms`,
+    );
+
+    // Cleanup function to remove the style when the component unmounts
+    return () => {
+      document.documentElement.style.removeProperty("--animation-duration");
+    };
+  }, [duration]);
+
   return (
     <div className={"absolute bottom-0 left-0 w-full h-2 z-20"}>
       <div className={"w-full h-2 bg-gray-500"}>
