@@ -71,7 +71,7 @@ export default function Gallery() {
 
   return (
     <>
-      <div className={"bg-[#1f1f1f] p-4"}>
+      <div className={"p-4 h-screen"}>
         <BackButton />
         <ScrollToTopButton />
         <PhotoGallery photos={photos} title={name} description={description} />
