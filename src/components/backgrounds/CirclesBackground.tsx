@@ -1,7 +1,7 @@
-import React from "react";
+import React, {ReactElement} from "react";
 import "./CirclesBackground.css";
 
-export function CirclesBackground(): JSX.Element {
+export function CirclesBackground(): ReactElement {
   return (
     <div>
       <ul className={"circles"}>
