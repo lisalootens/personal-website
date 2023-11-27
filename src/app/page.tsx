@@ -1,9 +1,9 @@
 import { CirclesBackground } from "../components/backgrounds/CirclesBackground";
 import { Socials } from "../components/Socials";
-import {Metadata} from "next";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Lisa Lootens",
+  title: "Lisa Lootens",
 };
 
 export default function Page() {
