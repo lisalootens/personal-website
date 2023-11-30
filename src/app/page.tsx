@@ -1,6 +1,6 @@
-import { CirclesBackground } from "../components/backgrounds/CirclesBackground";
 import { Socials } from "../components/Socials";
 import { Metadata } from "next";
+import { BirthdayBackground } from "../components/backgrounds/BirthdayBackground";
 
 export const metadata: Metadata = {
   title: "Lisa Lootens",
@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <CirclesBackground />
       <main>
+        <BirthdayBackground />
         <section
           className={
             "flex flex-col items-center justify-center text-center min-h-screen m-4"

@@ -12,7 +12,7 @@ export function BirthdayBackground(): ReactElement {
           ></li>
         ))}
       </ul>
-      <p className={"text-gray-200 tracking-widest"}>
+      <p className={"text-gray-200 tracking-widest max-md:hidden"}>
         My birthday is just around the corner
       </p>
     </section>
