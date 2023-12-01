@@ -20,10 +20,10 @@ function DurationBar({ isRunning, duration }: DurationBarProps) {
   }, [duration]);
 
   return (
-    <div className={"absolute bottom-0 left-0 w-full h-2 z-20"}>
-      <div className={"w-full h-2 bg-gray-500"}>
+    <div className="absolute bottom-0 left-0 w-full h-2 z-20">
+      <div className="w-full h-2 bg-gray-500">
         {isRunning ? (
-          <div className={`progress-animation w-full h-2 bg-gray-400`} />
+          <div className="progress-animation w-full h-2 bg-gray-400" />
         ) : (
           <div
             className={`w-full h-0.5 bg-gray-500 transition-opacity duration-${duration} opacity-50`}

@@ -57,18 +57,16 @@ export const CarouselSlider = ({
 
   return (
     <>
-      <section ref={sliderRef} className={"keen-slider flex bg-black h-screen"}>
+      <section ref={sliderRef} className="keen-slider flex bg-black h-screen">
         {photos.map((photo) => (
           <section
-            className={
-              "keen-slider__slide min-w-full h-screen relative overflow-hidden"
-            }
+            className="keen-slider__slide min-w-full h-screen relative overflow-hidden"
             key={photo.name}
             onClick={clickable ? handleOnClick : undefined}
             data-title={photo.name}
           >
             <img
-              className={"object-cover object-center w-full h-full opacity-70"}
+              className="object-cover object-center w-full h-full opacity-70"
               key={photo.name}
               src={photo.src}
               alt={photo.description}

@@ -28,9 +28,7 @@ export const ScrollToTopButton = () => {
     <>
       {showButton && (
         <button
-          className={
-            "default-button fill-black fixed bottom-[20px] right-[20px]"
-          }
+          className="default-button fill-black fixed bottom-[20px] right-[20px]"
           onClick={scrollToTop}
         >
           <svg height="60" width="60" xmlns="http://www.w3.org/2000/svg">
