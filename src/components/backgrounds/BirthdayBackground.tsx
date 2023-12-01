@@ -7,7 +7,7 @@ export function BirthdayBackground(): JSX.Element {
       <ul>
         {Array.from({ length: 5 }).map((_, index) => (
           <li
-            className={"balloon max-md:opacity-30"}
+            className="balloon max-md:opacity-30"
             key={`balloon-${index}`}
           ></li>
         ))}

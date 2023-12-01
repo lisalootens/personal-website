@@ -38,7 +38,7 @@ export default function PhotographyPage() {
   }
 
   return (
-    <div className={"overflow-hidden"}>
+    <div className="overflow-hidden">
       <CarouselSlider
         photos={menuPhotos}
         showDurationBar={true}

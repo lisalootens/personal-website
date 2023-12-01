@@ -8,7 +8,7 @@ export const BackButton = () => {
   return (
     <div tabIndex={-1}>
       <button
-        className={"default-button fill-transparent absolute"}
+        className="default-button fill-transparent absolute"
         onClick={() => router.back()}
       >
         <svg height="60" width="60" xmlns="http://www.w3.org/2000/svg">
@@ -26,4 +26,3 @@ export const BackButton = () => {
     </div>
   );
 };
-

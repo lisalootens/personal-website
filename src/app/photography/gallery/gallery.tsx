@@ -71,7 +71,7 @@ export default function Gallery() {
 
   return (
     <>
-      <div className={"p-4 h-screen"}>
+      <div className="p-4 h-screen">
         <BackButton />
         <ScrollToTopButton />
         <PhotoGallery photos={photos} title={name} description={description} />
@@ -79,4 +79,3 @@ export default function Gallery() {
     </>
   );
 }
-

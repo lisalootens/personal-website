@@ -26,28 +26,20 @@ export const PhotoGallery: React.FC<PhotoGalleryProps> = ({
   return (
     <>
       <section
-        role={"region"}
-        aria-label={"outer-grid-section"}
-        className={
-          "grid grid-cols-[repeat(auto-fill,minmax(30rem,1fr))] gap-2 max-sm:grid-cols-[repeat(auto-fill,minmax(15rem,1fr))]"
-        }
+        role="region"
+        aria-label="outer-grid-section"
+        className="grid grid-cols-[repeat(auto-fill,minmax(30rem,1fr))] gap-2 max-sm:grid-cols-[repeat(auto-fill,minmax(15rem,1fr))]"
       >
         {title && (
           <section
-            role={"region"}
-            aria-label={"grid-title-block"}
-            className={
-              "col-span-1 flex flex-col justify-center text-center text-gray-300 bg-[#2a2a2a] rounded-lg max-h-[30rem]"
-            }
+            role="region"
+            aria-label="grid-title-block"
+            className="col-span-1 flex flex-col justify-center text-center text-gray-300 bg-[#2a2a2a] rounded-lg max-h-[30rem]"
           >
-            <h1
-              className={
-                "text-4xl uppercase tracking-widest pt-4 max-sm:text-2xl"
-              }
-            >
+            <h1 className="text-4xl uppercase tracking-widest pt-4 max-sm:text-2xl">
               {title}
             </h1>
-            <p className={"m-4 text-gray-300 p-4 max-sm:text-sm"}>
+            <p className="m-4 text-gray-300 p-4 max-sm:text-sm">
               {description}
             </p>
           </section>
@@ -55,9 +47,7 @@ export const PhotoGallery: React.FC<PhotoGalleryProps> = ({
         {photos.map((photo, index) => {
           return (
             <img
-              className={
-                "cursor-pointer w-full h-full max-h-96 object-cover rounded-lg text-white"
-              }
+              className="cursor-pointer w-full h-full max-h-96 object-cover rounded-lg text-white"
               src={photo.src}
               alt={photo.description}
               key={photo.src}

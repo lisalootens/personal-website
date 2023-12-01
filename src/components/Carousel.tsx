@@ -44,16 +44,16 @@ export const Carousel = ({ photos, startAtIndex }: CarouselProps) => {
 
   return (
     <>
-      <section className={"p-4 flex items-center justify-center max-sm:p-0"}>
+      <section className="p-4 flex items-center justify-center max-sm:p-0">
         <div ref={sliderRef} className="keen-slider ml-6">
           {photos.map((photo) => (
             <div
-              className={"keen-slider__slide flex items-center justify-center"}
+              className="keen-slider__slide flex items-center justify-center"
               key={photo.src}
             >
               <img
                 alt={photo.description}
-                className={"max-w-[80vw] max-h-[80vh] rounded-xl object-cover"}
+                className="max-w-[80vw] max-h-[80vh] rounded-xl object-cover"
                 key={photo.src}
                 src={photo.src}
               />
@@ -61,7 +61,7 @@ export const Carousel = ({ photos, startAtIndex }: CarouselProps) => {
           ))}
         </div>
         {loaded && instanceRef.current && (
-          <div className={"flex items-center justify-center p-3.5"}>
+          <div className="flex items-center justify-center p-3.5">
             <Arrow
               left
               onClick={(e: any) =>
