@@ -1,9 +1,9 @@
-import React, { ReactElement } from "react";
+import React, { JSX } from "react";
 import "./BirthdayBackground.css";
 
-export function BirthdayBackground(): ReactElement {
+export function BirthdayBackground(): JSX.Element {
   return (
-    <section className={"text-center mt-4 w-full absolute"}>
+    <div className="text-center mt-4 w-full absolute">
       <ul>
         {Array.from({ length: 5 }).map((_, index) => (
           <li
@@ -12,9 +12,9 @@ export function BirthdayBackground(): ReactElement {
           ></li>
         ))}
       </ul>
-      <p className={"text-gray-200 tracking-widest max-md:hidden"}>
+      <p className="text-gray-200 tracking-widest max-md:hidden">
         My birthday is just around the corner
       </p>
-    </section>
+    </div>
   );
 }
