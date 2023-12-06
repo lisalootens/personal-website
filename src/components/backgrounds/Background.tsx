@@ -12,9 +12,7 @@ const isBirthdayBackgroundInRange =
 
 const isSnowBackgroundInRange =
   // When birthday background is not active, show a snowy background during winter time
-  isBirthdayBackgroundInRange
-    ? false
-    : currentMonth === 12 || currentMonth === 1;
+  isBirthdayBackgroundInRange ? false : currentMonth >= 11 || currentMonth <= 2;
 
 export function Background() {
   switch (true) {
