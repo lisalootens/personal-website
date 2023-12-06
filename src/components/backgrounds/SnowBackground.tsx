@@ -7,7 +7,7 @@ function getRandomInt(min: number, max: number) {
 
 export function SnowBackground(): JSX.Element {
   return (
-    <div className="absolute z-[-1]">
+    <div className="absolute z-[-1] opacity-80">
       <ul>
         {Array.from({ length: 200 }).map((_, index) => {
           // Generate random values within specified ranges
