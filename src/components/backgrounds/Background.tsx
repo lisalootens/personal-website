@@ -6,21 +6,16 @@ const currentDate = new Date();
 const currentMonth = currentDate.getMonth() + 1;
 const currentDay = currentDate.getDate();
 
-const isBirthdayBackgroundInRange =
+const isBirthdayClose =
   // Every year between the first and 13th of December, show a birthday background
   currentMonth === 12 && currentDay > 6 && currentDay < 13;
 
-const isSnowBackgroundInRange =
+const isWinter =
   // When birthday background is not active, show a snowy background during winter time
-  isBirthdayBackgroundInRange ? false : currentMonth >= 11 || currentMonth <= 2;
+  currentMonth >= 11 || currentMonth <= 2;
 
 export function Background() {
-  switch (true) {
-    case isBirthdayBackgroundInRange:
-      return <BirthdayBackground />;
-    case isSnowBackgroundInRange:
-      return <SnowBackground />;
-    default:
-      return <CirclesBackground />;
-  }
+  if (isBirthdayClose) return <BirthdayBackground />;
+  if (isWinter) return <SnowBackground />;
+  return <CirclesBackground />;
 }
