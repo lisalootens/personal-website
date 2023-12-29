@@ -1,13 +1,13 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faFacebook,
   faGithub,
   faInstagram,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
-export function Socials(): JSX.Element {
+export function Socials() {
   return (
     <section className="flex items-center">
       <a href="https://linkedin.com/in/lisalootens" target="_blank">
@@ -31,11 +31,11 @@ export function Socials(): JSX.Element {
           title="Instagram icon"
         />
       </a>
-      <a href="https://facebook.com/lisa.lootens.5" target="_blank">
+      <a href="mailto:lisa_lootens@live.nl">
         <FontAwesomeIcon
           className="w-8 h-auto m-[4vw] text-white hover:cursor-pointer hover:opacity-75"
-          icon={faFacebook}
-          title="Facebook icon"
+          icon={faEnvelope}
+          title="Email icon"
         />
       </a>
     </section>
