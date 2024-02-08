@@ -3,7 +3,7 @@ import "./CirclesBackground.css";
 
 export function CirclesBackground(): JSX.Element {
   return (
-    <div>
+    <div aria-hidden={true}>
       <ul className="circles">
         {Array.from({ length: 10 }).map((_, index) => (
           <li key={`backgroundCircle-${index}`}></li>
