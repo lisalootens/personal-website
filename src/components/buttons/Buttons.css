@@ -7,7 +7,7 @@
     stroke-dasharray: 140 540;
     stroke-dashoffset: -474;
     stroke-width: 2px;
-    stroke: #19f6e8;
+    stroke: rgb(217, 119, 6);
     transition: stroke-width 0.5s,
     stroke-dashoffset 0.5s,
     stroke-dasharray 0.5s;
@@ -26,6 +26,25 @@
 
 .default-button svg:hover .shape {
     stroke-width: 1px;
+    stroke-dashoffset: 0;
+    stroke-dasharray: 760;
+}
+
+.rectangle-button .shape {
+    stroke-dasharray: 140 540;
+    stroke-dashoffset: -474;
+    stroke-width: 8px;
+    fill: transparent;
+    stroke: rgb(217, 119, 6);
+    border-bottom: 5px solid black;
+    transition:
+            stroke-width 1s,
+            stroke-dashoffset 1s,
+            stroke-dasharray 1s;
+}
+
+.rectangle-button svg:hover .shape {
+    stroke-width: 2px;
     stroke-dashoffset: 0;
     stroke-dasharray: 760;
 }

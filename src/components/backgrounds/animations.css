@@ -15,3 +15,23 @@
         transform: translateX(80px);
     }
 }
+
+@keyframes spaceship-ascent {
+    0% {
+        top: 100%;
+    }
+    100% {
+        top: -10%;
+    }
+}
+
+@keyframes spaceship-steer {
+    0%, 100% {
+        transform: translateX(30px);
+        rotate: -30deg;
+    }
+    50% {
+        transform: translateY(0px);
+        rotate: -70deg;
+    }
+}

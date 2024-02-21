@@ -1,10 +1,10 @@
 import { Metadata } from "next";
-import Home from "./home";
+import Discovery from "./discovery";
 
 export const metadata: Metadata = {
-  title: "Lisa Lootens",
+  title: "TO SPACE!",
 };
 
 export default function Page() {
-  return <Home />;
+  return <Discovery />;
 }
