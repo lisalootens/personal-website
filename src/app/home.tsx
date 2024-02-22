@@ -22,8 +22,8 @@ export default function Home() {
             Hi, I am <span className="text-amber-600">Lisa Lootens</span>.
           </h1>
           <p className="text-gray-200 m-4 text-base md:text-xl">
-            Learning to become a developer! I am currently focussing on Java.
-            Recently started as a Software Engineer at Ordina.
+            Passionate about weaving the magic of programming into powerful solutions. As a enthusiastic DevOps engineer, 
+            I'm not just coding; I orchestrate the future of technology, one line at a time - always learning, always evolving.
           </p>
           <Socials />
         </section>
