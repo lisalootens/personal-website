@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <Background />
-      <Spaceship handleOnClick={() => navigate("/blog")} />
+      <Spaceship handleOnClick={() => navigate("/discovery")} />
       <main>
         <section className="flex flex-col items-center justify-center text-center min-h-screen m-4">
           <h1 className="text-gray-200 text-4xl font-bold md:text-7xl">
