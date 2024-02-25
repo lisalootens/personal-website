@@ -23,7 +23,7 @@ export default function Home() {
           </h1>
           <p className="text-gray-200 m-16 text-base md:text-xl">
             Passionate about weaving the magic of programming into powerful
-            solutions. As a enthusiastic DevOps engineer, I'm not just coding; I
+            solutions. As an enthusiastic DevOps engineer, I'm not just coding; I
             orchestrate the future of technology, one line at a time - always
             learning, always evolving.
           </p>
