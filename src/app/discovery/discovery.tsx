@@ -7,9 +7,9 @@ import { useRouter } from "next/navigation";
 export default function Discovery() {
   const router = useRouter();
 
-  const navigate = () => {
-    return router.back();
-  };
+  function navigate(path: string) {
+    return router.push(path);
+  }
 
   return (
     <>
@@ -17,11 +17,8 @@ export default function Discovery() {
       <div className="w-screen h-screen p-20 flex flex-col justify-evenly items-center text-gray-200 text-center">
         <section>
           <h1 className="text-2xl mb-5"> Wooo, you found a secret page! </h1>
-          <p className="text-s mb-20">
-            Please note that this page is still under construction: stay tuned.
-          </p>
         </section>
-        <RectangleButton handleOnClick={() => navigate()} />
+        <RectangleButton handleOnClick={() => navigate("./blog")} />
       </div>
     </>
   );

@@ -1,9 +1,10 @@
 import { Metadata } from "next";
+import Discovery from "./discovery";
 
 export const metadata: Metadata = {
-  title: "Blogniverse",
+  title: "Discovery",
 };
 
 export default function Page() {
-  return <div className="text-white">Hi</div>;
+  return <Discovery />;
 }
