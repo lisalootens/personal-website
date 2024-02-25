@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { useRouter } from "next/navigation";
 import "./Buttons.css";
 
 interface ButtonProps {
@@ -7,18 +6,8 @@ interface ButtonProps {
 }
 
 export const RectangleButton: FC<ButtonProps> = ({ handleOnClick }) => {
-  const router = useRouter();
-
-  function navigate(path: string) {
-    return router.push(path);
-  }
-
   return (
-    <button
-      className="rectangle-button"
-      aria-hidden={true}
-      onClick={handleOnClick}
-    >
+    <button className="rectangle-button" onClick={handleOnClick}>
       <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
         <rect className="shape" height="60" width="320" />
         <text
