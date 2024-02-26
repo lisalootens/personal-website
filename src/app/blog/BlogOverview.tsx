@@ -1,11 +1,16 @@
 "use client";
 
 import { BlogPostListItem } from "../../components/blog/BlogPostListItem";
+import { NavigationBar } from "../../components/NavigationBar";
 import { descriptionLoremIpsum } from "../../../public/texts/descriptions";
 
 export default function BlogOverview() {
   return (
     <div className="p-4 w-screen flex flex-col justify-center items-center">
+      <NavigationBar
+        link={["/", "/", "/"]}
+        text={["Articles", "About", "Back"]}
+      />
       <section className="w-3/5">
         <ul className="grid grid-cols-1 gap-8">
           <BlogPostListItem
