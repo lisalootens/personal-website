@@ -22,10 +22,11 @@ export default function Home() {
             Hi, I am <span className="text-amber-600">Lisa Lootens</span>.
           </h1>
           <p className="text-gray-200 m-16 text-base md:text-xl">
-            Passionate about weaving the magic of programming into powerful
-            solutions. As an enthusiastic DevOps engineer, I'm not just coding; I
-            orchestrate the future of technology, one line at a time - always
-            learning, always evolving.
+            A software engineer with a passion for building digital solutions.
+            Welcome to my website. It's a place. It exists. Enjoy the
+            nothingness. <br />
+            The website changes frequently to experiment with different styles
+            and features.
           </p>
           <Socials />
         </section>
