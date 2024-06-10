@@ -2,10 +2,15 @@ import { FC, ReactNode } from "react";
 
 interface ModalProps {
   onClose: () => any;
+  closeButtonTitle: string;
   children: ReactNode;
 }
 
-export const Modal: FC<ModalProps> = ({ onClose, children }) => {
+export const Modal: FC<ModalProps> = ({
+  onClose,
+  closeButtonTitle,
+  children,
+}) => {
   const handleModalClose = () => {
     // Set overflow property to default
     document.body.style.overflow = "";
@@ -18,7 +23,7 @@ export const Modal: FC<ModalProps> = ({ onClose, children }) => {
         className=" absolute top-[2vh] right-[2vw] py-4 px-2 text-white text-base z-10 capitalize"
         onClick={handleModalClose}
       >
-        close
+        {closeButtonTitle}
       </button>
       {children}
     </section>
