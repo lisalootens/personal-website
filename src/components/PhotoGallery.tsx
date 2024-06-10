@@ -59,6 +59,7 @@ export const PhotoGallery: React.FC<PhotoGalleryProps> = ({
           <Modal
             children={<Carousel photos={photos} startAtIndex={index} />}
             onClose={() => setExpandedPhoto(undefined)}
+            closeButtonTitle="Close"
           />
         )}
       </section>
