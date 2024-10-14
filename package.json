@@ -14,24 +14,24 @@
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
-    "firebase": "^10.14.0",
+    "firebase": "^10.14.1",
     "keen-slider": "^6.8.6",
-    "next": "^14.2.14",
+    "next": "^14.2.15",
     "next-images": "^1.8.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scroll-parallax": "^3.4.5"
   },
   "devDependencies": {
-    "@types/node": "22.7.4",
+    "@types/node": "22.7.5",
     "@types/react": "^18.3.11",
-    "@types/react-dom": "^18.3.0",
+    "@types/react-dom": "^18.3.1",
     "autoprefixer": "^10.4.20",
     "eslint": "^8.57.0",
-    "eslint-config-next": "^14.2.14",
+    "eslint-config-next": "^14.2.15",
     "postcss": "^8.4.47",
     "prettier": "3.3.3",
     "tailwindcss": "^3.4.13",
-    "typescript": "5.6.2"
+    "typescript": "5.6.3"
   }
 }
